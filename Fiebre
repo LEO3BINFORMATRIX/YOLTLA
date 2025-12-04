@@ -1362,7 +1362,7 @@
                 </div>
 
                 <div class="plant-card" onclick="showPlantPage('Nispero')">
-                    <div class="plant-img" style="background-image: url('Níspero.png')"></div>
+                    <div class="plant-img" style="background-image: url('Nispero.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Níspero</h3>
                         <p class="plant-description">Diabetes, actividad hipoglicémica, afecciones renales, cálculos biliares, amigdalitis, diarrea, mejora la digestión, antiinflamatorio, hipotérmica.</p>
@@ -1389,7 +1389,7 @@
                 </div>
 
                 <div class="plant-card" onclick="showPlantPage('Sauco')">
-                    <div class="plant-img" style="background-image: url('Saúco.png')"></div>
+                    <div class="plant-img" style="background-image: url('Sauco.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Saúco</h3>
                         <p class="plant-description">Gripe, resfriado común, fiebre, gota, reumatismo, estreñimiento, cistitis, litiasis renal, estimular producción de leche materna, caries, hemorroides.</p>
@@ -2267,4 +2267,5 @@
         }
     </script>
 </body>
+
 </html>
