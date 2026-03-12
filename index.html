@@ -1637,6 +1637,20 @@
             </div>
         </div>
     </div>
+    </script>
+    <style>
+        /* Ocultar mensajes de error de Power BI */
+        iframe + .powerbi-error,
+        .powerbi-qna-not-supported,
+        .visual-container-error {
+            display: none !important;
+        }
+        
+        /* Fondo verde para el iframe */
+        .info-content iframe {
+            background-color: #f0f7f0;
+        }
+    </style>
 
     <!-- Pie de página -->
     <footer>
@@ -2274,4 +2288,5 @@
 </body>
 
 </html>
+
 
