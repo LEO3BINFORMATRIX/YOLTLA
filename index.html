@@ -902,38 +902,43 @@
     </section>
 
     <!-- PÁGINA DE UBICACIÓN -->
-    <section id="location-page" class="info-page">
-        <div class="info-header">
-            <div class="container">
-                <h1>Nuestra Ubicación</h1>
-                <p>Conoce más sobre Zacapoaxtla y sus localidades</p>
-                <!-- BOTONES CORREGIDOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
-            </div>
-        </div>
-        
+<section id="location-page" class="info-page">
+    <div class="info-header">
         <div class="container">
-            <div class="info-content">
-                <h2>Zacapoaxtla, Puebla - Corazón de la Sierra Norte</h2>
-                <p>Zacapoaxtla es un municipio ubicado en la Sierra Norte de Puebla, México. Su nombre proviene del náhuatl "Zacapoalxhtla" que significa "Lugar donde se cuenta el zacate" o "Lugar de paja contada". Esta región es conocida por su riqueza cultural y biodiversidad.</p>
-                
-                <h3>Localidades que pertenecen a Zacapoaxtla:</h3>
-                <ul>
-                    <li><strong>Xaltipan</strong> - Conocida por sus tradiciones ancestrales</li>
-                    <li><strong>Tatauzoquico</strong> - Comunidad con gran diversidad de plantas medicinales</li>
-                    <li><strong>Xochiapulco</strong> - Pueblo con historia revolucionaria</li>
-                    <li><strong>Atacpan</strong> - Zona de agricultura tradicional</li>
-                    <li><strong>Tepetzintla</strong> - Comunidad en las faldas del cerro</li>
-                    <li><strong>Tenextlatiloyan</strong> - Pueblo con medicina tradicional activa</li>
-                    <li><strong>Tepango</strong> - Área de cultivos orgánicos</li>
-                    <li><strong>Tlapacoyan</strong> - Región de bosques y vegetación diversa</li>
-                    <li><strong>Xalacapan</strong> - Comunidad con curanderos tradicionales</li>
-                    <li><strong>Tequimila</strong> - Zona de aguas termales y plantas curativas</li>
-                </ul>
-            </div>
+            <h1>Nuestra Ubicación</h1>
+            <p>Conoce más sobre Zacapoaxtla y sus localidades</p>
+            <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
+            <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
         </div>
-    </section>
+    </div>
+    
+    <div class="container">
+        <div class="info-content">
+            <h2>Zacapoaxtla, Puebla - Corazón de la Sierra Norte</h2>
+            <p>Zacapoaxtla es un municipio ubicado en la Sierra Norte de Puebla, México. Su nombre proviene del náhuatl "Zacapoalxhtla" que significa "Lugar donde se cuenta el zacate" o "Lugar de paja contada". Esta región es conocida por su riqueza cultural y biodiversidad.</p>
+            
+            <h3>Localidades que pertenecen a Zacapoaxtla:</h3>
+            <!-- 👆 CIERRA LA LISTA CORRECTAMENTE AQUÍ -->
+
+            <!-- MAPA INTERACTIVO DE POWER BI (FUERA DE LA LISTA) -->
+            <h3 style="margin-top: 40px; color: #2d5a2d;">Mapa de distribución de especies medicinales</h3>
+            <p style="margin-bottom: 20px;">Visualización interactiva de las plantas documentadas en la región nororiental de Puebla.</p>
+
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15); margin-top: 20px; margin-bottom: 30px; background-color: #f0f7f0;">
+                <iframe title="Mapa de especies medicinales - Zacapoaxtla" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiZWVlYmVlY2QtZjM0OS00ODVkLTg0MDQtNGEzMDc1NjMzNDVmIiwidCI6ImVlMDY4ZTIzLTQwMWItNDBlZS04OWY5LTMwZTZiNGIzODkwMiIsImMiOjR9" 
+                        frameborder="0" 
+                        allowFullScreen="true"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+                </iframe>
+            </div>
+
+            <p style="font-size: 0.9rem; color: #666; font-style: italic;">* Fuente: Investigación comunitaria Yoltla.com - Datos actualizados a 2025</p>
+        </div>
+    </div>
+</section>
+
+    <!-- PÁGINA DE CONTACTO -->
 
     <!-- PÁGINA DE CONTACTO -->
     <section id="contact-page" class="info-page">
@@ -2269,3 +2274,4 @@
 </body>
 
 </html>
+
