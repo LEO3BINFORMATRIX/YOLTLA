@@ -48,6 +48,7 @@
             font-weight: bold;
             color: #e8f5e8;
             text-decoration: none;
+            cursor: pointer;
         }
         
         .logo span {
@@ -68,6 +69,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            cursor: pointer;
         }
         
         .nav-links a:hover {
@@ -79,8 +81,7 @@
             position: relative;
             height: 60vh;
             min-height: 400px;
-            background: linear-gradient(rgba(45, 90, 45, 0.4), rgba(45, 90, 45, 0.4)), 
-                        url('portada.png') no-repeat center center/contain;
+            background: linear-gradient(rgba(45, 90, 45, 0.5), rgba(45, 90, 45, 0.5));
             background-color: #2d5a2d;
             color: white;
             display: flex;
@@ -90,10 +91,24 @@
             padding-top: 40px;
         }
         
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('portada.png') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
         .hero-content {
             width: 100%;
             padding: 0 20px;
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
@@ -239,6 +254,8 @@
             transition: background 0.3s;
             margin-right: 10px;
             cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
         
         .back-btn:hover {
@@ -257,6 +274,7 @@
             transition: background 0.3s;
             border: 2px solid white;
             cursor: pointer;
+            font-size: 1rem;
         }
         
         .return-btn:hover {
@@ -310,7 +328,7 @@
             margin-bottom: 10px;
         }
         
-        /* PÁGINAS INDIVIDUALES DE PLANTAS - DISEÑO CREATIVO */
+        /* PÁGINAS INDIVIDUALES DE PLANTAS */
         .plant-detail-page {
             display: none;
             padding: 40px 0;
@@ -384,6 +402,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
+            background-color: #e8f5e8;
         }
         
         .plant-detail-image::after {
@@ -435,10 +454,6 @@
             gap: 10px;
         }
         
-        .info-section h3::before {
-            font-size: 1.2rem;
-        }
-        
         .info-section ul {
             list-style: none;
             padding-left: 0;
@@ -458,20 +473,6 @@
             font-weight: bold;
         }
         
-        .preparation-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .preparation-card {
-            background: #f0f7f0;
-            border-radius: 15px;
-            padding: 20px;
-            border-left: 4px solid #2d5a2d;
-        }
-        
         .precaution-card {
             background: #fff8e8;
             border-radius: 15px;
@@ -489,232 +490,6 @@
             text-align: center;
             padding-top: 40px;
             border-top: 1px solid #e8f5e8;
-        }
-        
-        /* CHATBOT MODERNO */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .chatbot-toggle {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(45, 90, 45, 0.4);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-        
-        .chatbot-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(45, 90, 45, 0.5);
-        }
-        
-        .chatbot-toggle img {
-            width: 30px;
-            height: 30px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .chatbot-window {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 350px;
-            height: 500px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .chatbot-window.active {
-            display: flex;
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .chatbot-header {
-            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .chatbot-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .chatbot-avatar {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #2d5a2d;
-        }
-        
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-        
-        .chatbot-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .chatbot-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .message {
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            line-height: 1.4;
-            animation: messageAppear 0.3s ease;
-        }
-        
-        .bot-message {
-            align-self: flex-start;
-            background: #f0f7f0;
-            border-bottom-left-radius: 5px;
-            color: #2d5a2d;
-        }
-        
-        .user-message {
-            align-self: flex-end;
-            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-        
-        .quick-replies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        
-        .quick-reply {
-            background: white;
-            border: 1px solid #2d5a2d;
-            color: #2d5a2d;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .quick-reply:hover {
-            background: #2d5a2d;
-            color: white;
-        }
-        
-        .chatbot-input {
-            display: flex;
-            padding: 15px;
-            border-top: 1px solid #eee;
-            background: #f9f9f9;
-        }
-        
-        .chatbot-input input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            outline: none;
-            font-size: 0.9rem;
-        }
-        
-        .chatbot-input button {
-            background: #2d5a2d;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-left: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-        
-        .chatbot-input button:hover {
-            background: #1e3f1e;
-        }
-        
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 10px 15px;
-            background: #f0f7f0;
-            border-radius: 18px;
-            align-self: flex-start;
-            max-width: 80px;
-        }
-        
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #2d5a2d;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-        
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(45, 90, 45, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(45, 90, 45, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(45, 90, 45, 0); }
-        }
-        
-        @keyframes messageAppear {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-5px); }
         }
         
         /* Pie de página */
@@ -747,6 +522,7 @@
         .footer-links a {
             color: #e8f5e8;
             text-decoration: none;
+            cursor: pointer;
         }
         
         .footer-links a:hover {
@@ -773,16 +549,6 @@
             
             .hero p {
                 font-size: 1rem;
-            }
-            
-            .chatbot-window {
-                width: 300px;
-                height: 450px;
-            }
-            
-            .chatbot-container {
-                bottom: 10px;
-                right: 10px;
             }
             
             .hero {
@@ -818,12 +584,12 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo" onclick="showHomePage(event)">Yoltla<span>.com</span></a>
+                <a class="logo" onclick="window.showHomePage()">Yoltla<span>.com</span></a>
                 <ul class="nav-links">
-                    <li><a href="#" onclick="showHomePage(event)">Inicio</a></li>
-                    <li><a href="#" onclick="showLocationPage(event)">Ubicación</a></li>
-                    <li><a href="#" onclick="showContactPage(event)">Contáctanos</a></li>
-                    <li><a href="#" onclick="showAboutPage(event)">Acerca de Nosotros</a></li>
+                    <li><a onclick="window.showHomePage()">Inicio</a></li>
+                    <li><a onclick="window.showLocationPage()">Ubicación</a></li>
+                    <li><a onclick="window.showContactPage()">Contáctanos</a></li>
+                    <li><a onclick="window.showAboutPage()">Acerca de Nosotros</a></li>
                 </ul>
             </nav>
         </div>
@@ -844,8 +610,7 @@
             <!-- Plantas destacadas -->
             <h2 class="section-title">Plantas Destacadas</h2>
             <div class="featured-plants">
-                <!-- CORREGIDO: Cada planta abre su propia página -->
-                <div class="plant-card" onclick="showPlantPage('manzanilla')">
+                <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Manzanilla</h3>
@@ -854,7 +619,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('sabila')">
+                <div class="plant-card" onclick="window.showPlantPage('sabila')">
                     <div class="plant-img" style="background-image: url('Sabila.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Sábila</h3>
@@ -863,7 +628,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('arnica')">
+                <div class="plant-card" onclick="window.showPlantPage('arnica')">
                     <div class="plant-img" style="background-image: url('Arnica.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Árnica</h3>
@@ -877,22 +642,22 @@
             <h2 class="section-title">Navegar por Condición</h2>
             <div class="conditions">
                 <div class="conditions-grid">
-                    <a class="condition-card" onclick="showConditionPage('stress')">
+                    <a class="condition-card" onclick="window.showConditionPage('stress')">
                         <div class="condition-icon">😰</div>
                         <h3 class="condition-name">Estrés, Ansiedad e Insomnio</h3>
                     </a>
                     
-                    <a class="condition-card" onclick="showConditionPage('digestion')">
+                    <a class="condition-card" onclick="window.showConditionPage('digestion')">
                         <div class="condition-icon">🤢</div>
                         <h3 class="condition-name">Digestión</h3>
                     </a>
                     
-                    <a class="condition-card" onclick="showConditionPage('fever')">
+                    <a class="condition-card" onclick="window.showConditionPage('fever')">
                         <div class="condition-icon">🤒</div>
                         <h3 class="condition-name">Fiebre e Inflamación</h3>
                     </a>
                     
-                    <a class="condition-card" onclick="showConditionPage('pain')">
+                    <a class="condition-card" onclick="window.showConditionPage('pain')">
                         <div class="condition-icon">🤕</div>
                         <h3 class="condition-name">Dolor</h3>
                     </a>
@@ -902,43 +667,58 @@
     </section>
 
     <!-- PÁGINA DE UBICACIÓN -->
-<section id="location-page" class="info-page">
-    <div class="info-header">
-        <div class="container">
-            <h1>Nuestra Ubicación</h1>
-            <p>Conoce más sobre Zacapoaxtla y sus localidades</p>
-            <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-            <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="info-content">
-            <h2>Zacapoaxtla, Puebla - Corazón de la Sierra Norte</h2>
-            <p>Zacapoaxtla es un municipio ubicado en la Sierra Norte de Puebla, México. Su nombre proviene del náhuatl "Zacapoalxhtla" que significa "Lugar donde se cuenta el zacate" o "Lugar de paja contada". Esta región es conocida por su riqueza cultural y biodiversidad.</p>
-            
-            <h3>Localidades que pertenecen a Zacapoaxtla:</h3>
-            <!-- 👆 CIERRA LA LISTA CORRECTAMENTE AQUÍ -->
-
-            <!-- MAPA INTERACTIVO DE POWER BI (FUERA DE LA LISTA) -->
-            <h3 style="margin-top: 40px; color: #2d5a2d;">Mapa de distribución de especies medicinales</h3>
-            <p style="margin-bottom: 20px;">Visualización interactiva de las plantas documentadas en la región nororiental de Puebla.</p>
-
-            <div style="position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15); margin-top: 20px; margin-bottom: 30px; background-color: #f0f7f0;">
-                <iframe title="Mapa de especies medicinales - Zacapoaxtla" 
-                        src="https://app.powerbi.com/view?r=eyJrIjoiZWVlYmVlY2QtZjM0OS00ODVkLTg0MDQtNGEzMDc1NjMzNDVmIiwidCI6ImVlMDY4ZTIzLTQwMWItNDBlZS04OWY5LTMwZTZiNGIzODkwMiIsImMiOjR9" 
-                        frameborder="0" 
-                        allowFullScreen="true"
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
-                </iframe>
+    <section id="location-page" class="info-page">
+        <div class="info-header">
+            <div class="container">
+                <h1>Nuestra Ubicación</h1>
+                <p>Conoce más sobre Zacapoaxtla y sus localidades</p>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
-
-            <p style="font-size: 0.9rem; color: #666; font-style: italic;">* Fuente: Investigación comunitaria Yoltla.com - Datos actualizados a 2025</p>
         </div>
-    </div>
-</section>
+        
+        <div class="container">
+            <div class="info-content">
+                <h2>Zacapoaxtla, Puebla - Corazón de la Sierra Norte</h2>
+                <p>Zacapoaxtla es un municipio ubicado en la Sierra Norte de Puebla, México. Su nombre proviene del náhuatl "Zacapoalxhtla" que significa "Lugar donde se cuenta el zacate" o "Lugar de paja contada". Esta región es conocida por su riqueza cultural y biodiversidad.</p>
+                
+                <h3>Localidades que pertenecen a Zacapoaxtla:</h3>
+                <ul>
+                    <li>Atacpan</li>
+                    <li>Cuiculico</li>
+                    <li>Tatoxcac</li>
+                    <li>Las Lomas</li>
+                    <li>El Molino</li>
+                    <li>Nexticapan</li>
+                    <li>Xilita</li>
+                    <li>El Progreso</li>
+                    <li>Ahuacatlán</li>
+                    <li>Insurgentes</li>
+                    <li>Calcahualco</li>
+                    <li>Colos</li>
+                    <li>Yanhuicapan</li>
+                    <li>Comaltepec</li>
+                    <li>Gonzalo Bautista</li>
+                    <li>Mazapa</li>
+                    <li>San Juan Tahitic</li>
+                </ul>
 
-    <!-- PÁGINA DE CONTACTO -->
+                <h3 style="margin-top: 40px; color: #2d5a2d;">Mapa de distribución de especies medicinales</h3>
+                <p style="margin-bottom: 20px;">Visualización interactiva de las plantas documentadas en la región nororiental de Puebla.</p>
+
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15); margin-top: 20px; margin-bottom: 30px; background-color: #f0f7f0;">
+                    <iframe title="Mapa de especies medicinales - Zacapoaxtla" 
+                            src="https://app.powerbi.com/view?r=eyJrIjoiZWVlYmVlY2QtZjM0OS00ODVkLTg0MDQtNGEzMDc1NjMzNDVmIiwidCI6ImVlMDY4ZTIzLTQwMWItNDBlZS04OWY5LTMwZTZiNGIzODkwMiIsImMiOjR9" 
+                            frameborder="0" 
+                            allowFullScreen="true"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+                    </iframe>
+                </div>
+
+                <p style="font-size: 0.9rem; color: #666; font-style: italic;">* Fuente: Investigación comunitaria Yoltla.com - Datos actualizados a 2025</p>
+            </div>
+        </div>
+    </section>
 
     <!-- PÁGINA DE CONTACTO -->
     <section id="contact-page" class="info-page">
@@ -946,9 +726,8 @@
             <div class="container">
                 <h1>Contáctanos</h1>
                 <p>Estamos aquí para ayudarte y escucharte</p>
-                <!-- BOTONES CORREGIDOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
@@ -974,9 +753,8 @@
             <div class="container">
                 <h1>Acerca de Nosotros</h1>
                 <p>Conoce la historia y misión de Yoltla.com</p>
-                <!-- BOTONES CORREGIDOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
@@ -997,16 +775,14 @@
             <div class="container">
                 <h1>Plantas para Estrés y Ansiedad</h1>
                 <p>Remedios naturales para calmar la mente y el cuerpo - Especies de Zacapoaxtla</p>
-                <!-- BOTONES MEJORADOS: Volver al inicio y Regresar -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
         <div class="container">
             <div class="plants-grid">
-                <!-- PLANTAS DEL PDF - ESTRÉS, ANSIEDAD E INSOMNIO -->
-                <div class="plant-card" onclick="showPlantPage('epazote')">
+                <div class="plant-card" onclick="window.showPlantPage('epazote')">
                     <div class="plant-img" style="background-image: url('Epazote.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Epazote</h3>
@@ -1015,7 +791,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('hierbabuena')">
+                <div class="plant-card" onclick="window.showPlantPage('hierbabuena')">
                     <div class="plant-img" style="background-image: url('Hierbabuena.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Hierbabuena</h3>
@@ -1024,7 +800,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('lavanda')">
+                <div class="plant-card" onclick="window.showPlantPage('lavanda')">
                     <div class="plant-img" style="background-image: url('Lavanda.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Lavanda</h3>
@@ -1033,7 +809,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('manzanilla')">
+                <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Manzanilla</h3>
@@ -1042,7 +818,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('geranio')">
+                <div class="plant-card" onclick="window.showPlantPage('geranio')">
                     <div class="plant-img" style="background-image: url('Geranio.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Geranio</h3>
@@ -1051,7 +827,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('limon')">
+                <div class="plant-card" onclick="window.showPlantPage('limon')">
                     <div class="plant-img" style="background-image: url('Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Limón</h3>
@@ -1060,7 +836,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('albahaca')">
+                <div class="plant-card" onclick="window.showPlantPage('albahaca')">
                     <div class="plant-img" style="background-image: url('Albahaca.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Albahaca</h3>
@@ -1069,7 +845,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('avena')">
+                <div class="plant-card" onclick="window.showPlantPage('avena')">
                     <div class="plant-img" style="background-image: url('Avena.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Avena</h3>
@@ -1078,16 +854,16 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('cempasuchil')">
+                <div class="plant-card" onclick="window.showPlantPage('cempasuchil')">
                     <div class="plant-img" style="background-image: url('Cempasuchil.png')"></div>
                     <div class="plant-info">
-                        <h3 class="plant-name">Compasúchil</h3>
+                        <h3 class="plant-name">Cempasúchil</h3>
                         <p class="plant-description">Enfermedades respiratorias, trastornos digestivos, cólicos menstruales, enfermedades de la piel, nervios, insomnio, ataques epilépticos.</p>
                         <span class="read-more">Ver detalles completos</span>
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('laurel')">
+                <div class="plant-card" onclick="window.showPlantPage('laurel')">
                     <div class="plant-img" style="background-image: url('Laurel.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Laurel</h3>
@@ -1096,7 +872,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('romero')">
+                <div class="plant-card" onclick="window.showPlantPage('romero')">
                     <div class="plant-img" style="background-image: url('Romero.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Romero</h3>
@@ -1105,7 +881,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('zacate_limon')">
+                <div class="plant-card" onclick="window.showPlantPage('zacate_limon')">
                     <div class="plant-img" style="background-image: url('Zacate Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Zacate Limón</h3>
@@ -1123,16 +899,14 @@
             <div class="container">
                 <h1>Plantas para Problemas Digestivos</h1>
                 <p>Remedios para mejorar la digestión - Especies documentadas en Zacapoaxtla</p>
-                <!-- BOTONES MEJORADOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
         <div class="container">
             <div class="plants-grid">
-                <!-- PLANTAS ACTUALIZADAS DEL DOCUMENTO PDF -->
-                <div class="plant-card" onclick="showPlantPage('hierbabuena')">
+                <div class="plant-card" onclick="window.showPlantPage('hierbabuena')">
                     <div class="plant-img" style="background-image: url('Hierbabuena.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Hierbabuena</h3>
@@ -1141,7 +915,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('lavanda')">
+                <div class="plant-card" onclick="window.showPlantPage('lavanda')">
                     <div class="plant-img" style="background-image: url('Lavanda.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Lavanda</h3>
@@ -1150,7 +924,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('manzanilla')">
+                <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Manzanilla</h3>
@@ -1159,7 +933,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('bugambilia')">
+                <div class="plant-card" onclick="window.showPlantPage('bugambilia')">
                     <div class="plant-img" style="background-image: url('Bugambilia.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Bugambilia</h3>
@@ -1168,7 +942,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('dienteleon')">
+                <div class="plant-card" onclick="window.showPlantPage('dienteleon')">
                     <div class="plant-img" style="background-image: url('Diente de leon.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Diente de León</h3>
@@ -1177,7 +951,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('eucalipto')">
+                <div class="plant-card" onclick="window.showPlantPage('eucalipto')">
                     <div class="plant-img" style="background-image: url('Eucalipto.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Eucalipto</h3>
@@ -1186,7 +960,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('limon')">
+                <div class="plant-card" onclick="window.showPlantPage('limon')">
                     <div class="plant-img" style="background-image: url('Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Limón</h3>
@@ -1195,7 +969,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('ruda')">
+                <div class="plant-card" onclick="window.showPlantPage('ruda')">
                     <div class="plant-img" style="background-image: url('Ruda.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Ruda</h3>
@@ -1204,7 +978,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('toronjil_rojo')">
+                <div class="plant-card" onclick="window.showPlantPage('toronjil_rojo')">
                     <div class="plant-img" style="background-image: url('Toronjil rojo.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Toronjil Rojo</h3>
@@ -1213,7 +987,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('ajo')">
+                <div class="plant-card" onclick="window.showPlantPage('ajo')">
                     <div class="plant-img" style="background-image: url('Ajo.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Ajo</h3>
@@ -1222,7 +996,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('albahaca')">
+                <div class="plant-card" onclick="window.showPlantPage('albahaca')">
                     <div class="plant-img" style="background-image: url('Albahaca.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Albahaca</h3>
@@ -1231,7 +1005,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('arnica')">
+                <div class="plant-card" onclick="window.showPlantPage('arnica')">
                     <div class="plant-img" style="background-image: url('Arnica.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Árnica</h3>
@@ -1243,22 +1017,20 @@
         </div>
     </section>
 
-    <!-- PÁGINA ACTUALIZADA: FIEBRE E INFLAMACIÓN CON DATOS DEL PDF -->
+    <!-- PÁGINA PARA FIEBRE E INFLAMACIÓN -->
     <section id="fever-page" class="condition-page">
         <div class="condition-header">
             <div class="container">
                 <h1>Plantas para Fiebre e Inflamación</h1>
                 <p>Remedios naturales para reducir fiebre y tratar inflamaciones - Especies de Zacapoaxtla</p>
-                <!-- BOTONES MEJORADOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
         <div class="container">
             <div class="plants-grid">
-                <!-- PLANTAS DEL PDF PARA FIEBRE E INFLAMACIÓN -->
-                <div class="plant-card" onclick="showPlantPage('manzanilla')">
+                <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Manzanilla</h3>
@@ -1267,7 +1039,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('sabila')">
+                <div class="plant-card" onclick="window.showPlantPage('sabila')">
                     <div class="plant-img" style="background-image: url('Sabila.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Sábila</h3>
@@ -1276,7 +1048,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('dienteleon')">
+                <div class="plant-card" onclick="window.showPlantPage('dienteleon')">
                     <div class="plant-img" style="background-image: url('Diente de leon.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Diente de León</h3>
@@ -1285,7 +1057,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('geranio')">
+                <div class="plant-card" onclick="window.showPlantPage('geranio')">
                     <div class="plant-img" style="background-image: url('Geranio.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Geranio</h3>
@@ -1294,7 +1066,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('limon')">
+                <div class="plant-card" onclick="window.showPlantPage('limon')">
                     <div class="plant-img" style="background-image: url('Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Limón</h3>
@@ -1303,7 +1075,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('albahaca')">
+                <div class="plant-card" onclick="window.showPlantPage('albahaca')">
                     <div class="plant-img" style="background-image: url('Albahaca.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Albahaca</h3>
@@ -1312,7 +1084,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('arnica')">
+                <div class="plant-card" onclick="window.showPlantPage('arnica')">
                     <div class="plant-img" style="background-image: url('Arnica.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Árnica</h3>
@@ -1321,16 +1093,16 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('cempasuchil')">
+                <div class="plant-card" onclick="window.showPlantPage('cempasuchil')">
                     <div class="plant-img" style="background-image: url('Cempasuchil.png')"></div>
                     <div class="plant-info">
-                        <h3 class="plant-name">Compasúchil</h3>
+                        <h3 class="plant-name">Cempasúchil</h3>
                         <p class="plant-description">Enfermedades respiratorias, trastornos digestivos, cólicos menstruales, enfermedades de la piel, nervios, insomnio, ataques epilépticos.</p>
                         <span class="read-more">Ver detalles completos</span>
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('cola_caballo')">
+                <div class="plant-card" onclick="window.showPlantPage('cola_caballo')">
                     <div class="plant-img" style="background-image: url('Cola de Caballo.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Cola de Caballo</h3>
@@ -1339,7 +1111,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('chayote')">
+                <div class="plant-card" onclick="window.showPlantPage('chayote')">
                     <div class="plant-img" style="background-image: url('Chayote.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Chayote</h3>
@@ -1348,7 +1120,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('guayaba')">
+                <div class="plant-card" onclick="window.showPlantPage('guayaba')">
                     <div class="plant-img" style="background-image: url('Guayaba.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Guayaba</h3>
@@ -1357,7 +1129,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('malva')">
+                <div class="plant-card" onclick="window.showPlantPage('malva')">
                     <div class="plant-img" style="background-image: url('Malva.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Malva</h3>
@@ -1366,7 +1138,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('Nispero')">
+                <div class="plant-card" onclick="window.showPlantPage('nispero')">
                     <div class="plant-img" style="background-image: url('Nispero.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Níspero</h3>
@@ -1375,7 +1147,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('nopal')">
+                <div class="plant-card" onclick="window.showPlantPage('nopal')">
                     <div class="plant-img" style="background-image: url('Nopal.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Nopal</h3>
@@ -1384,7 +1156,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('romero')">
+                <div class="plant-card" onclick="window.showPlantPage('romero')">
                     <div class="plant-img" style="background-image: url('Romero.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Romero</h3>
@@ -1393,8 +1165,8 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('Sauco')">
-                    <div class="plant-img" style="background-image: url('Sauco.png')"></div>
+                <div class="plant-card" onclick="window.showPlantPage('sauco')">
+                    <div class="plant-img" style="background-image: url('Saúco.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Saúco</h3>
                         <p class="plant-description">Gripe, resfriado común, fiebre, gota, reumatismo, estreñimiento, cistitis, litiasis renal, estimular producción de leche materna, caries, hemorroides.</p>
@@ -1402,7 +1174,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('zacate_limon')">
+                <div class="plant-card" onclick="window.showPlantPage('zacate_limon')">
                     <div class="plant-img" style="background-image: url('Zacate Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Zacate Limón</h3>
@@ -1414,22 +1186,20 @@
         </div>
     </section>
 
-    <!-- PÁGINA ACTUALIZADA: DOLOR CON DATOS DEL PDF -->
+    <!-- PÁGINA PARA DOLOR -->
     <section id="pain-page" class="condition-page">
         <div class="condition-header">
             <div class="container">
                 <h1>Plantas para el Dolor</h1>
                 <p>Analgésicos naturales para diferentes tipos de dolor - Especies de Zacapoaxtla</p>
-                <!-- BOTONES MEJORADOS -->
-                <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                <button class="return-btn" onclick="window.goBack()">Regresar</button>
             </div>
         </div>
         
         <div class="container">
             <div class="plants-grid">
-                <!-- PLANTAS DEL PDF PARA DOLOR -->
-                <div class="plant-card" onclick="showPlantPage('epazote')">
+                <div class="plant-card" onclick="window.showPlantPage('epazote')">
                     <div class="plant-img" style="background-image: url('Epazote.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Epazote</h3>
@@ -1438,7 +1208,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('hierbabuena')">
+                <div class="plant-card" onclick="window.showPlantPage('hierbabuena')">
                     <div class="plant-img" style="background-image: url('Hierbabuena.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Hierbabuena</h3>
@@ -1447,7 +1217,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('lavanda')">
+                <div class="plant-card" onclick="window.showPlantPage('lavanda')">
                     <div class="plant-img" style="background-image: url('Lavanda.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Lavanda</h3>
@@ -1456,7 +1226,7 @@
                     </div>
                 </div>
                 
-                <div class="plant-card" onclick="showPlantPage('manzanilla')">
+                <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Manzanilla</h3>
@@ -1465,7 +1235,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('sabila')">
+                <div class="plant-card" onclick="window.showPlantPage('sabila')">
                     <div class="plant-img" style="background-image: url('Sabila.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Sábila</h3>
@@ -1474,7 +1244,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('bugambilia')">
+                <div class="plant-card" onclick="window.showPlantPage('bugambilia')">
                     <div class="plant-img" style="background-image: url('Bugambilia.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Bugambilia</h3>
@@ -1483,7 +1253,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('eucalipto')">
+                <div class="plant-card" onclick="window.showPlantPage('eucalipto')">
                     <div class="plant-img" style="background-image: url('Eucalipto.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Eucalipto</h3>
@@ -1492,7 +1262,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('geranio')">
+                <div class="plant-card" onclick="window.showPlantPage('geranio')">
                     <div class="plant-img" style="background-image: url('Geranio.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Geranio</h3>
@@ -1501,7 +1271,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('ruda')">
+                <div class="plant-card" onclick="window.showPlantPage('ruda')">
                     <div class="plant-img" style="background-image: url('Ruda.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Ruda</h3>
@@ -1510,7 +1280,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('toronjil_rojo')">
+                <div class="plant-card" onclick="window.showPlantPage('toronjil_rojo')">
                     <div class="plant-img" style="background-image: url('Toronjil rojo.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Toronjil rojo</h3>
@@ -1519,7 +1289,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('ajo')">
+                <div class="plant-card" onclick="window.showPlantPage('ajo')">
                     <div class="plant-img" style="background-image: url('Ajo.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Ajo</h3>
@@ -1528,7 +1298,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('albahaca')">
+                <div class="plant-card" onclick="window.showPlantPage('albahaca')">
                     <div class="plant-img" style="background-image: url('Albahaca.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Albahaca</h3>
@@ -1537,7 +1307,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('arnica')">
+                <div class="plant-card" onclick="window.showPlantPage('arnica')">
                     <div class="plant-img" style="background-image: url('Arnica.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Árnica</h3>
@@ -1546,16 +1316,16 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('cempasuchil')">
+                <div class="plant-card" onclick="window.showPlantPage('cempasuchil')">
                     <div class="plant-img" style="background-image: url('Cempasuchil.png')"></div>
                     <div class="plant-info">
-                        <h3 class="plant-name">Compasúchil</h3>
+                        <h3 class="plant-name">Cempasúchil</h3>
                         <p class="plant-description">Cólicos menstruales, enfermedades de la piel, nervios, insomnio, ataques epilépticos, afecciones del estómago, reumatismo.</p>
                         <span class="read-more">Ver detalles completos</span>
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('cola_caballo')">
+                <div class="plant-card" onclick="window.showPlantPage('cola_caballo')">
                     <div class="plant-img" style="background-image: url('Cola de Caballo.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Cola de Caballo</h3>
@@ -1564,7 +1334,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('guayaba')">
+                <div class="plant-card" onclick="window.showPlantPage('guayaba')">
                     <div class="plant-img" style="background-image: url('Guayaba.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Guayaba</h3>
@@ -1573,7 +1343,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('malva')">
+                <div class="plant-card" onclick="window.showPlantPage('malva')">
                     <div class="plant-img" style="background-image: url('Malva.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Malva</h3>
@@ -1582,7 +1352,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('sauco')">
+                <div class="plant-card" onclick="window.showPlantPage('sauco')">
                     <div class="plant-img" style="background-image: url('Saúco.png')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Saúco</h3>
@@ -1591,7 +1361,7 @@
                     </div>
                 </div>
 
-                <div class="plant-card" onclick="showPlantPage('zacate_limon')">
+                <div class="plant-card" onclick="window.showPlantPage('zacate_limon')">
                     <div class="plant-img" style="background-image: url('Zacate Limon.jpg')"></div>
                     <div class="plant-info">
                         <h3 class="plant-name">Zacate Limón</h3>
@@ -1602,55 +1372,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CHATBOT MODERNO -->
-    <div class="chatbot-container">
-        <div class="chatbot-toggle" id="chatbotToggle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-            </svg>
-        </div>
-        
-        <div class="chatbot-window" id="chatbotWindow">
-            <div class="chatbot-header">
-                <div class="chatbot-title">
-                    <div class="chatbot-avatar">Y</div>
-                    <div>
-                        <h3 style="margin: 0; font-size: 1rem;">Yoltla Asistente</h3>
-                        <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">En línea</p>
-                    </div>
-                </div>
-                <button class="chatbot-close" id="chatbotClose">×</button>
-            </div>
-            
-            <div class="chatbot-messages" id="chatbotMessages">
-                <!-- Los mensajes se agregarán aquí dinámicamente -->
-            </div>
-            
-            <div class="chatbot-input">
-                <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje...">
-                <button id="chatbotSend">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20px" height="20px">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    </script>
-    <style>
-        /* Ocultar mensajes de error de Power BI */
-        iframe + .powerbi-error,
-        .powerbi-qna-not-supported,
-        .visual-container-error {
-            display: none !important;
-        }
-        
-        /* Fondo verde para el iframe */
-        .info-content iframe {
-            background-color: #f0f7f0;
-        }
-    </style>
 
     <!-- Pie de página -->
     <footer>
@@ -1664,19 +1385,19 @@
                 <div class="footer-section">
                     <h3>Condiciones</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showConditionPage('stress')">Estrés y Ansiedad</a></li>
-                        <li><a href="#" onclick="showConditionPage('digestion')">Digestión</a></li>
-                        <li><a href="#" onclick="showConditionPage('fever')">Fiebre e Inflamación</a></li>
-                        <li><a href="#" onclick="showConditionPage('pain')">Dolor</a></li>
+                        <li><a onclick="window.showConditionPage('stress')">Estrés y Ansiedad</a></li>
+                        <li><a onclick="window.showConditionPage('digestion')">Digestión</a></li>
+                        <li><a onclick="window.showConditionPage('fever')">Fiebre e Inflamación</a></li>
+                        <li><a onclick="window.showConditionPage('pain')">Dolor</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Información</h3>
                     <ul class="footer-links">
-                        <li><a href="#" onclick="showLocationPage(event)">Ubicación</a></li>
-                        <li><a href="#" onclick="showContactPage(event)">Contáctanos</a></li>
-                        <li><a href="#" onclick="showAboutPage(event)">Acerca de Nosotros</a></li>
+                        <li><a onclick="window.showLocationPage()">Ubicación</a></li>
+                        <li><a onclick="window.showContactPage()">Contáctanos</a></li>
+                        <li><a onclick="window.showAboutPage()">Acerca de Nosotros</a></li>
                     </ul>
                 </div>
             </div>
@@ -1688,82 +1409,19 @@
     </footer>
 
     <script>
-        // Variable global para rastrear la página anterior
-        let previousPage = 'home-page';
+        // Variable para guardar el historial de navegación
+        let navigationHistory = ['home-page'];
         let currentPage = 'home-page';
 
-        // Base de conocimiento del chatbot
-        const chatbotKnowledge = {
-            "saludo": {
-                patterns: ["hola", "buenos días", "buenas tardes", "buenas noches", "hey", "hi"],
-                responses: [
-                    "¡Hola! Soy Yoltla, tu asistente de plantas medicinales. ¿En qué puedo ayudarte hoy?",
-                    "¡Buen día! Me da gusto saludarte. ¿Tienes alguna pregunta sobre plantas medicinales?",
-                    "¡Hola! Bienvenido a Yoltla, medicina del corazón. ¿Cómo puedo asistirte?"
-                ]
-            },
-            "despedida": {
-                patterns: ["adiós", "chao", "hasta luego", "nos vemos", "bye", "gracias"],
-                responses: [
-                    "¡Ha sido un placer ayudarte! Recuerda que la naturaleza tiene remedios para muchas dolencias. ¡Vuelve pronto!",
-                    "¡Hasta luego! Que tengas un día lleno de bienestar. No dudes en consultarme si tienes más preguntas.",
-                    "¡Nos vemos! Espero haberte sido de ayuda. Cuida tu salud con las bondades de la naturaleza."
-                ]
-            },
-            "plantas estres": {
-                patterns: ["estrés", "ansiedad", "nervios", "tranquilizante", "calmante"],
-                responses: [
-                    "Para el estrés y la ansiedad te recomiendo: <strong>Manzanilla</strong>, <strong>Valeriana</strong>, <strong>Lavanda</strong> y <strong>Pasiflora</strong>. ¿Te gustaría saber más sobre alguna en particular?",
-                    "Existen varias plantas que pueden ayudarte con el estrés. Las más efectivas son la <strong>Valeriana</strong> como sedante natural y la <strong>Manzanilla</strong> para casos más leves."
-                ]
-            },
-            "plantas digestion": {
-                patterns: ["digestión", "estómago", "gases", "acidez", "indigestión"],
-                responses: [
-                    "Para problemas digestivos te sugiero: <strong>Hierbabuena</strong>, <strong>Jengibre</strong>, <strong>Anís</strong> y <strong>Manzanilla</strong>. ¿Cuál te interesa conocer?",
-                    "La <strong>Hierbabuena</strong> es excelente para aliviar cólicos y gases, mientras que el <strong>Jengibre</strong> ayuda con las náuseas."
-                ]
-            },
-            "plantas fiebre": {
-                patterns: ["fiebre", "inflamación", "temperatura", "calentura"],
-                responses: [
-                    "Para fiebre e inflamación te recomiendo: <strong>Manzanilla</strong>, <strong>Sábila</strong>, <strong>Árnica</strong> y <strong>Saúco</strong>. Estas plantas tienen propiedades antiinflamatorias y antipiréticas.",
-                    "La <strong>Manzanilla</strong> es excelente para reducir fiebre, y la <strong>Sábila</strong> ayuda con inflamaciones. El <strong>Limón</strong> también es bueno para gripes con fiebre."
-                ]
-            },
-            "plantas dolor": {
-                patterns: ["dolor", "analgésico", "antiinflamatorio", "molestia", "cólico", "reumatismo"],
-                responses: [
-                    "Para el dolor te recomiendo: <strong>Árnica</strong> (dolores musculares), <strong>Epazote</strong> (cólicos), <strong>Hierbabuena</strong> (dolor de cabeza) y <strong>Sábila</strong> (inflamaciones).",
-                    "El <strong>Árnica</strong> es excelente para golpes y moretones, mientras que la <strong>Ruda</strong> ayuda con dolores musculares y la <strong>Lavanda</strong> con dolores reumáticos."
-                ]
-            },
-            "ubicacion": {
-                patterns: ["dónde están", "ubicación", "zacapoaxtla", "localidades"],
-                responses: [
-                    "Yoltla.com se enfoca en las plantas medicinales de Zacapoaxtla, Puebla y sus localidades como Xaltipan, Tatauzoquico y Xochiapulco.",
-                    "Nuestro conocimiento proviene de la tradición herbal de Zacapoaxtla en la Sierra Norte de Puebla, México."
-                ]
-            },
-            "default": {
-                responses: [
-                    "Interesante pregunta. Como asistente especializado en plantas medicinales, puedo ayudarte con información sobre plantas para estrés, digestión, fiebre o dolor. ¿En qué área te interesa saber más?",
-                    "No estoy seguro de entender completamente. ¿Podrías reformular tu pregunta? Puedo ayudarte con información sobre plantas medicinales para diferentes condiciones.",
-                    "Como Yoltla, me especializo en plantas medicinales de Zacapoaxtla. ¿Te interesa saber sobre plantas para alguna condición en particular?"
-                ]
-            }
-        };
-
-        // Base de datos de plantas CON TODAS LAS PLANTAS DEL PDF
+        // Base de datos de plantas (completa)
         const plantasData = {
-            // Plantas para Dolor (del PDF Dolor.pdf)
             "epazote": {
                 nombre: "Epazote",
                 nombreCientifico: "Chenopodium ambrosioides L",
                 familia: "Chenopodiaceae",
                 partesUtilizadas: "Hojas",
-                ubicacion: "Atacpan, Cuiculico, Atacpan,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic,xilita",
-                usosMedicinales: "Calmar cólicos menstruales, malestares estomacales e intestinales, descongestión de las vías respiratorias, eliminación de parásitos intestinales, nervios, ayuda a aumentar la producción de leche durante la lactancia, afecciones de la matriz, ulceras gangrenosas, lombrices, cálculos de la vejiga, asma, tos ferina, tónico estomacal, reumatismo.",
+                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
+                usosMedicinales: "Calmar cólicos menstruales, malestares estomacales e intestinales, descongestión de las vías respiratorias, eliminación de parásitos intestinales, nervios, ayuda a aumentar la producción de leche durante la lactancia, afecciones de la matriz, úlceras gangrenosas, lombrices, cálculos de la vejiga, asma, tos ferina, tónico estomacal, reumatismo.",
                 propiedades: "Hidratos de carbono, fibra, hierro, calcio, fósforo, vitamina C y niacina."
             },
             "hierbabuena": {
@@ -1771,16 +1429,16 @@
                 nombreCientifico: "Menta spicata",
                 familia: "Lamiaceace",
                 partesUtilizadas: "Hojas",
-                ubicacion: "Atacpan, Cuiculico, Atacpan,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic,xilita",
+                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
                 usosMedicinales: "Mala digestión, dolor de cabeza, dolor muscular, eliminación de gas intestinal, estrés, ansiedad, nervios, distensión abdominal, náuseas, colon irritable, cólicos.",
                 propiedades: "Flavonoides, ácidos fenólicos, taninos, triterpenos, aminoácidos libres, monoterpenos, diterpenos, aceites esenciales como mentol, mentona, cineol, limoneno, pulegona y carvona."
             },
             "lavanda": {
                 nombre: "Lavanda",
-                nombreCientifico: "Mentha",
+                nombreCientifico: "Lavandula angustifolia",
                 familia: "Lamiaceace",
                 partesUtilizadas: "Flores",
-                ubicacion: "Atacpan, Cuiculico, Atacpan,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes",
+                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes",
                 usosMedicinales: "Internamente, por sus efectos sedantes, es buena para combatir la agresividad, irritabilidad y la neurosis, enfermedades respiratorias, dolor de cabeza, alergias, digestión; externamente, calma dolores reumáticos, lesiones en la piel y alopecia.",
                 propiedades: "linalol, tanino, saponina, cumarina, acetato de linalilo y heterósidos."
             },
@@ -1789,81 +1447,18 @@
                 nombreCientifico: "Matricaria chamomilla L.",
                 familia: "Asteraceae",
                 partesUtilizadas: "Flores y Tallo",
-                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Mazapa, San Juan Tahitic,xilita",
-                usosMedicinales: "Se utilizan para tratar muchos padecimientos incluidos la fiebre, inflamación, espasmos musculares, desordenes mestruales, insomnio, ulcera, herida, desordenes gastrointestinales, dolor reumático y hemorroides.",
+                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Mazapa, San Juan Tahitic",
+                usosMedicinales: "Se utilizan para tratar muchos padecimientos incluidos la fiebre, inflamación, espasmos musculares, desordenes menstruales, insomnio, úlcera, herida, desordenes gastrointestinales, dolor reumático y hemorroides.",
                 propiedades: "El aceite de la manzanilla es usado en cosméticos y aromaterapia. Se calcula que a nivel mundial se consumen más de un millón de tazas de té herbal de manzanilla al día."
             },
             "sabila": {
                 nombre: "Sábila",
                 nombreCientifico: "Aloe vera",
                 familia: "Xanthorrhoeaceae",
-                partesUtilizadas: "Pulpa de la Penca(interior), hoja fresca",
-                ubicacion: "Atacpan, Cuiculico, Atacpan,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
+                partesUtilizadas: "Pulpa de la Penca (interior), hoja fresca",
+                ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
                 usosMedicinales: "Cura llagas y heridas, inflamaciones del intestino grueso, hemorroides, dolores de cabeza ocasionados por trastornos uterinos o gástricos, infecciones por cándida, sarpullido, arrugas, acné y como bloqueador solar.",
                 propiedades: "Ácidos glutámico, aloético, palmítico, aspártico; aceites esenciales de cineol, cariofileno y pineno; minerales como calcio, magnesio, potasio, zinc, fósforo, manganeso, y aluminio en sus hojas; aminoácidos como aloína, aloesína, lisina, arginina, glutamina; también está compuesta por vitamina B1."
-            },
-            "bugambilia": {
-                nombre: "Bugambilia",
-                nombreCientifico: "Bougainvillea glabra Choisy",
-                familia: "Nyctaginaceae",
-                partesUtilizadas: "Flores",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San juan Tahitic",
-                usosMedicinales: "Útil para el tratamiento de dolor de garganta, tos, asma, posee cualidades expectorantes; También actúa como un eficaz fluidificante de la sangre, cistitis, acné, aliviar la indigestión, diarrea y leucorrea.",
-                propiedades: ""
-            },
-            "eucalipto": {
-                nombre: "Eucalipto",
-                nombreCientifico: "Eucalyptus globolus",
-                familia: "Myrtaceae",
-                partesUtilizadas: "Hojas con ramas internas y frutos",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Comaltepec, San juan Tahitic",
-                usosMedicinales: "Resfriado común, sinusitis, efecto moderado contra la diabetes, eliminación de parásitos intestinales, fiebre, dolor de cabeza, dolor de garganta, dolor de pulmón.",
-                propiedades: "Eucaliptol, pineno, canfeno, cetonas, taninos, azuleno, flavona y aldehídos."
-            },
-            "geranio": {
-                nombre: "Geranio",
-                nombreCientifico: "Pelargonium graveolens",
-                familia: "Geraniaceae",
-                partesUtilizadas: "Flores y Hojas",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San juan Tahitic",
-                usosMedicinales: "Antiséptico, cicatrizante, reafirmante, control de hemorragias y úlceras, combate el cansancio y la debilidad muscular, mejora la apariencia de las várices.",
-                propiedades: "Citronela, geraniol, linalol, terpinol y alcohol de feniletil."
-            },
-            "ruda": {
-                nombre: "Ruda",
-                nombreCientifico: "Ruta graveolens",
-                familia: "Rutaceae",
-                partesUtilizadas: "Hojas, tallo y flores",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, San Juan Tahitic",
-                usosMedicinales: "Malestar digestivo, distensión abdominal, calambres musculares, histeria, parásitos intestinales, epilepsia, debilidad visual, dolor de cabeza, dolor de oído, dolores musculares, diarrea, ojos irritados, induce la fertilidad, uso místico (mal de ojo, mal aire, espanto, brujería).",
-                propiedades: "Alcaloides, cumarinas, psoralenos, aceite esencial, rutósido, tanino y bergapteno."
-            },
-            "toronjil_rojo": {
-                nombre: "Toronjil rojo",
-                nombreCientifico: "Agastache mexicana",
-                familia: "Libiatae",
-                partesUtilizadas: "rama de la planta, hojas",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan,San Juan Tahitic",
-                usosMedicinales: "Nerviosismo, problemas gástricos, digestiva, alteraciones cardiovasculares, diarrea infantil, usos místicos (espanto, empacho, mal de ojo).",
-                propiedades: "Flavonoides, mentona, canfeno, pineno, limoneno, cimeno, citronelal y pulegona."
-            },
-            "ajo": {
-                nombre: "Ajo",
-                nombreCientifico: "Allium sativum",
-                familia: "Amaryllidaceae",
-                partesUtilizadas: "Bulbos y tallo",
-                ubicacion: "Nexticapan, Xilita, El progreso, Ahuacatlan,San Juan Tahitic",
-                usosMedicinales: "Antiséptico, hipotensor y diurético,también posee beneficios rejuvenecedores y sus propiedades son capaces de restaurar las arterias. Auxiliar en el tratamiento de diabetes, dolor de oídos, arterioesclerosis, hipertensión, pérdida de memoria en la vejez, gripe, resfriados, también ayuda a eliminar los parásitos intestinales, várices, reumatismo, parásitos internos, granos, mezquinos, callos, tos, asma, anginas, bronquitis, anemia,caries, caspa, promueve la menstruación, acelera el parto.",
-                propiedades: ""
-            },
-            "albahaca": {
-                nombre: "Albahaca",
-                nombreCientifico: "Ocimum basilicum L.",
-                familia: "Lamiaceae",
-                partesUtilizadas: "Hojas",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Usos medicinales: Internamente ayuda a la lenta digestión, gases intestinales, espasmos gástricos, dolor de cabeza, tos y también es buen auxiliar en casos de depresión. Para uso externo sirve para limpiar heridas, eccemas y bajar la fiebre. Mareos, gastritis, parásitos, diarrea, empacho, antiinflamatoria, problemas renales, dolores reumáticos, tensión nerviosa, uso místico (limpias).",
-                propiedades: "Posee aceite esencial de cineol, eugenol, estragol, saponinas y linalol."
             },
             "arnica": {
                 nombre: "Árnica",
@@ -1874,12 +1469,75 @@
                 usosMedicinales: "Internamente estimula la circulación, es antiespasmódica y astringente, eficaz para las insuficiencias cardiacas; externamente es antiinflamatoria, antibiótico, auxiliar en el tratamiento de golpes, gastritis, úlceras gástricas, heridas, llagas, dolor de ovarios, dolor renal, fiebre, inflamación estomacal, bronquitis, deficiencia visual, cirrosis, hemorroides, várices.",
                 propiedades: "Canino, fitosterina, arnicina, inulina, ácido palmítico, ácidos fenólicos, alcoholes terpénicos, colina, betaina y manganeso."
             },
+            "bugambilia": {
+                nombre: "Bugambilia",
+                nombreCientifico: "Bougainvillea glabra Choisy",
+                familia: "Nyctaginaceae",
+                partesUtilizadas: "Flores",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
+                usosMedicinales: "Útil para el tratamiento de dolor de garganta, tos, asma, posee cualidades expectorantes; También actúa como un eficaz fluidificante de la sangre, cistitis, acné, aliviar la indigestión, diarrea y leucorrea.",
+                propiedades: ""
+            },
+            "eucalipto": {
+                nombre: "Eucalipto",
+                nombreCientifico: "Eucalyptus globolus",
+                familia: "Myrtaceae",
+                partesUtilizadas: "Hojas con ramas internas y frutos",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Comaltepec, San Juan Tahitic",
+                usosMedicinales: "Resfriado común, sinusitis, efecto moderado contra la diabetes, eliminación de parásitos intestinales, fiebre, dolor de cabeza, dolor de garganta, dolor de pulmón.",
+                propiedades: "Eucaliptol, pineno, canfeno, cetonas, taninos, azuleno, flavona y aldehídos."
+            },
+            "geranio": {
+                nombre: "Geranio",
+                nombreCientifico: "Pelargonium graveolens",
+                familia: "Geraniaceae",
+                partesUtilizadas: "Flores y Hojas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
+                usosMedicinales: "Antiséptico, cicatrizante, reafirmante, control de hemorragias y úlceras, combate el cansancio y la debilidad muscular, mejora la apariencia de las várices.",
+                propiedades: "Citronela, geraniol, linalol, terpinol y alcohol de feniletil."
+            },
+            "ruda": {
+                nombre: "Ruda",
+                nombreCientifico: "Ruta graveolens",
+                familia: "Rutaceae",
+                partesUtilizadas: "Hojas, tallo y flores",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, San Juan Tahitic",
+                usosMedicinales: "Malestar digestivo, distensión abdominal, calambres musculares, histeria, parásitos intestinales, epilepsia, debilidad visual, dolor de cabeza, dolor de oído, dolores musculares, diarrea, ojos irritados, induce la fertilidad, uso místico (mal de ojo, mal aire, espanto, brujería).",
+                propiedades: "Alcaloides, cumarinas, psoralenos, aceite esencial, rutósido, tanino y bergapteno."
+            },
+            "toronjil_rojo": {
+                nombre: "Toronjil rojo",
+                nombreCientifico: "Agastache mexicana",
+                familia: "Libiatae",
+                partesUtilizadas: "Rama de la planta, hojas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, San Juan Tahitic",
+                usosMedicinales: "Nerviosismo, problemas gástricos, digestiva, alteraciones cardiovasculares, diarrea infantil, usos místicos (espanto, empacho, mal de ojo).",
+                propiedades: "Flavonoides, mentona, canfeno, pineno, limoneno, cimeno, citronelal y pulegona."
+            },
+            "ajo": {
+                nombre: "Ajo",
+                nombreCientifico: "Allium sativum",
+                familia: "Amaryllidaceae",
+                partesUtilizadas: "Bulbos y tallo",
+                ubicacion: "Nexticapan, Xilita, El progreso, Ahuacatlan, San Juan Tahitic",
+                usosMedicinales: "Antiséptico, hipotensor y diurético, también posee beneficios rejuvenecedores y sus propiedades son capaces de restaurar las arterias. Auxiliar en el tratamiento de diabetes, dolor de oídos, arterioesclerosis, hipertensión, pérdida de memoria en la vejez, gripe, resfriados, también ayuda a eliminar los parásitos intestinales, várices, reumatismo, parásitos internos, granos, mezquinos, callos, tos, asma, anginas, bronquitis, anemia, caries, caspa, promueve la menstruación, acelera el parto.",
+                propiedades: ""
+            },
+            "albahaca": {
+                nombre: "Albahaca",
+                nombreCientifico: "Ocimum basilicum L.",
+                familia: "Lamiaceae",
+                partesUtilizadas: "Hojas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec, San Juan Tahitic",
+                usosMedicinales: "Internamente ayuda a la lenta digestión, gases intestinales, espasmos gástricos, dolor de cabeza, tos y también es buen auxiliar en casos de depresión. Para uso externo sirve para limpiar heridas, eccemas y bajar la fiebre. Mareos, gastritis, parásitos, diarrea, empacho, antiinflamatoria, problemas renales, dolores reumáticos, tensión nerviosa, uso místico (limpias).",
+                propiedades: "Posee aceite esencial de cineol, eugenol, estragol, saponinas y linalol."
+            },
             "cempasuchil": {
-                nombre: "Compasúchil",
+                nombre: "Cempasúchil",
                 nombreCientifico: "Tagetes erecta",
                 familia: "Asteraceae",
                 partesUtilizadas: "Flor y Raíz",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San juan Tahitic",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
                 usosMedicinales: "Enfermedades respiratorias, trastornos digestivos, cólicos menstruales, baños después del parto, enfermedades de la piel, nervios, insomnio, ataques epilépticos, parásitos, ventosidad infantil, afecciones del estómago, empacho, diarrea, afecciones oculares, vómito, nervios, cólicos menstruales, promueve la lactancia, diabetes, reumatismo, atenuante de malestares de cáncer.",
                 propiedades: "Aceites esenciales como limoneno, linalol y geraniol, acetato, ocimeno, mentol y flavonoides."
             },
@@ -1888,7 +1546,7 @@
                 nombreCientifico: "Equisetum arvense",
                 familia: "Equisetaceae",
                 partesUtilizadas: "Hojas y Tallos",
-                ubicacion: "Atacpan, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Yanhuicapan, Comaltepec",
+                ubicacion: "Atacpan, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Yanhuicapan, Comaltepec",
                 usosMedicinales: "Internamente para controlar las menstruaciones abundantes, enfermedades pulmonares crónicas, problemas de próstata, infecciones de encías y garganta; externamente se pueden realizar baños para combatir esguinces, combatir erupciones en la piel y eczemas.",
                 propiedades: "Silicio orgánico, magnesio, aluminio, potasio, cloro, oxigeno, hidrógeno, sodio y carbono."
             },
@@ -1897,7 +1555,7 @@
                 nombreCientifico: "Psidium guajava",
                 familia: "Myrtaceae",
                 partesUtilizadas: "Hojas y tallos tiernos",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
                 usosMedicinales: "Diarrea, disentería, contra parásitos intestinales, alopecia, aljorra (en niños), problemas cutáneos, llagas, sarna, hinchazón de pies, afecciones del bazo, actividad antiespasmódica y antibacteriana.",
                 propiedades: "Flavonoides, quercetina y taninos."
             },
@@ -1906,8 +1564,8 @@
                 nombreCientifico: "Malva sylvestris",
                 familia: "Malvaceae",
                 partesUtilizadas: "Toda la planta",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las Iomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Internamente, combate la obesidad, laxante suave, resfriado común, gripe, faringitis; externamente es auxiliar en el tratamiento de piel irritada, picadura de insectos, heridas, infecciones vaginales (lavados), infecciones de garganta, afecciones renales, hidropesía, disentería, reumatismo, amigdalitis,hemorroides, afecciones vaginales.",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
+                usosMedicinales: "Internamente, combate la obesidad, laxante suave, resfriado común, gripe, faringitis; externamente es auxiliar en el tratamiento de piel irritada, picadura de insectos, heridas, infecciones vaginales (lavados), infecciones de garganta, afecciones renales, hidropesía, disentería, reumatismo, amigdalitis, hemorroides, afecciones vaginales.",
                 propiedades: "Vitaminas A, B1, B2 y C, antocianos, mucílagos, malvina y malvidina."
             },
             "sauco": {
@@ -1915,7 +1573,7 @@
                 nombreCientifico: "Sambucus nigra",
                 familia: "Adoxaceae",
                 partesUtilizadas: "Flores, hojas",
-                ubicacion: "Atacpan, Cuaculico,Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San juan Tahitic",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
                 usosMedicinales: "Gripe, resfriado común, fiebre, gota, reumatismo, estreñimiento, cistitis, litiasis renal, estimular la producción de leche materna, caries, purgante, bilis, hemorroides, dolores musculares, calambres.",
                 propiedades: "Flavonoides, carotenos, mucílagos, potasio, alcaloides, colina, triterpenos, azúcar, pectina, antocianos, ácidos orgánicos, vitamina C y ácidos málico y valeriánico."
             },
@@ -1927,196 +1585,172 @@
                 ubicacion: "Atacpan, El molino, Nexticapan, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Comaltepec",
                 usosMedicinales: "Dolor estomacal, vómito, facilita la digestión, diarrea, desinflama el estómago, retención urinaria, tos, gripe, dolor de cabeza, fiebre, nervios, hemorragias vaginales, colesterol, ejerce acción hipotérmica, diurética, hipocolesterolémica, depresora del sistema nervioso.",
                 propiedades: "Limoneno, linalol, geraniol, mirceno y citral."
+            },
+            "limon": {
+                nombre: "Limón",
+                nombreCientifico: "Citrus limon",
+                familia: "Rutaceae",
+                partesUtilizadas: "Fruto, hojas, cáscara",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec",
+                usosMedicinales: "Bactericida, acidez estomacal, enfermedades pulmonares crónicas, hiperviscosidad en la sangre, malaria, mejora la memoria, previene gripe y resfriado común, desinfectante de heridas, fragilidad capilar, obesidad.",
+                propiedades: "Vitamina C, ácido cítrico, flavonoides, limoneno."
+            },
+            "avena": {
+                nombre: "Avena",
+                nombreCientifico: "Avena sativa",
+                familia: "Poaceae",
+                partesUtilizadas: "Semillas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan",
+                usosMedicinales: "Rejuvenecedora, diurética, energética, calma la ansiedad, alivia trastornos de la menopausia, empleada en casos de bronquitis.",
+                propiedades: "Proteínas, fibra, vitaminas B, minerales como magnesio, fósforo y hierro."
+            },
+            "laurel": {
+                nombre: "Laurel",
+                nombreCientifico: "Laurus nobilis",
+                familia: "Lauraceae",
+                partesUtilizadas: "Hojas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan",
+                usosMedicinales: "Tos, gastritis, vómitos provocados por la digestión, crisis asmáticas, palpitaciones cardiacas, diarrea, parálisis, esterilidad, reumas.",
+                propiedades: "Aceites esenciales (cineol, eugenol), taninos, flavonoides."
+            },
+            "romero": {
+                nombre: "Romero",
+                nombreCientifico: "Rosmarinus officinalis",
+                familia: "Lamiaceae",
+                partesUtilizadas: "Hojas y ramas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco",
+                usosMedicinales: "Hipotensión, decaimiento físico, insuficiencia biliar, mala memoria, colesterol elevado, amenorrea, espasmos estomacales, estimulante del sistema nervioso, padecimientos respiratorios.",
+                propiedades: "Aceite esencial (alcanfor, cineol, pineno), flavonoides, ácidos fenólicos."
+            },
+            "dienteleon": {
+                nombre: "Diente de León",
+                nombreCientifico: "Taraxacum officinale",
+                familia: "Asteraceae",
+                partesUtilizadas: "Hojas, raíz, toda la planta",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
+                usosMedicinales: "Alivia el estreñimiento, disuelve cálculos biliares, buen diurético, obesidad, enfermedades de la piel, reumatismo, gota.",
+                propiedades: "Vitaminas A, B, C, D, minerales (potasio, hierro, calcio), inulina, taraxacina."
+            },
+            "chayote": {
+                nombre: "Chayote",
+                nombreCientifico: "Sechium edule",
+                familia: "Cucurbitaceae",
+                partesUtilizadas: "Fruto, hojas, raíz",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
+                usosMedicinales: "Inflamación renal, cálculos renales, mal de orín, disminuye la presión arterial, actividad diurética, efecto hipotensor, actividad vasodilatadora.",
+                propiedades: "Aminoácidos, vitamina C, fibra, minerales como potasio y magnesio."
+            },
+            "nispero": {
+                nombre: "Níspero",
+                nombreCientifico: "Eriobotrya japonica",
+                familia: "Rosaceae",
+                partesUtilizadas: "Hojas, fruto",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
+                usosMedicinales: "Diabetes, actividad hipoglicémica, afecciones renales, cálculos biliares, amigdalitis, diarrea, mejora la digestión, antiinflamatorio, hipotérmica.",
+                propiedades: "Ácido ursólico, flavonoides, taninos, vitamina C, carotenoides."
+            },
+            "nopal": {
+                nombre: "Nopal",
+                nombreCientifico: "Opuntia ficus-indica",
+                familia: "Cactaceae",
+                partesUtilizadas: "Cladodios (pencas), fruto",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan",
+                usosMedicinales: "Diabetes, hiperglucemia, colesterol elevado, protege la mucosa gastrointestinal, obesidad y mala digestión.",
+                propiedades: "Fibra soluble (mucílagos, pectina), vitaminas A, C, K, minerales como calcio, magnesio, potasio."
+            },
+            "cilantro": {
+                nombre: "Cilantro",
+                nombreCientifico: "Coriandrum sativum",
+                familia: "Apiaceae",
+                partesUtilizadas: "Hojas y semillas",
+                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan",
+                usosMedicinales: "Problemas digestivos, gases, cólicos, ansiedad, insomnio, propiedades antibacterianas y antifúngicas.",
+                propiedades: "Aceites esenciales (linalol, geraniol), flavonoides, vitaminas A, C, K."
             }
         };
 
-        // Funcionalidad del chatbot
-        document.addEventListener('DOMContentLoaded', function() {
-            const chatbotToggle = document.getElementById('chatbotToggle');
-            const chatbotWindow = document.getElementById('chatbotWindow');
-            const chatbotClose = document.getElementById('chatbotClose');
-            const chatbotMessages = document.getElementById('chatbotMessages');
-            const chatbotInput = document.getElementById('chatbotInput');
-            const chatbotSend = document.getElementById('chatbotSend');
-            
-            // Mostrar mensaje de bienvenida
-            setTimeout(() => {
-                addBotMessage("¡Hola! Soy Yoltla, tu asistente virtual especializado en plantas medicinales. ¿En qué puedo ayudarte hoy?");
-                addQuickReplies([
-                    "Plantas para dolor",
-                    "Remedios digestivos", 
-                    "Ayuda para estrés",
-                    "Ubicación de Zacapoaxtla"
-                ]);
-            }, 1000);
-            
-            // Abrir/cerrar chatbot
-            chatbotToggle.addEventListener('click', () => {
-                chatbotWindow.classList.toggle('active');
-            });
-            
-            chatbotClose.addEventListener('click', () => {
-                chatbotWindow.classList.remove('active');
-            });
-            
-            // Enviar mensaje al presionar Enter
-            chatbotInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-            
-            // Enviar mensaje al hacer clic en el botón
-            chatbotSend.addEventListener('click', sendMessage);
-            
-            function sendMessage() {
-                const message = chatbotInput.value.trim();
-                if (message) {
-                    addUserMessage(message);
-                    chatbotInput.value = '';
-                    
-                    // Simular "escribiendo..."
-                    showTypingIndicator();
-                    
-                    // Respuesta del bot después de un breve retraso
-                    setTimeout(() => {
-                        removeTypingIndicator();
-                        const response = getBotResponse(message);
-                        addBotMessage(response);
-                        
-                        // Agregar respuestas rápidas después de ciertos tipos de mensajes
-                        if (message.toLowerCase().includes('hola') || message.toLowerCase().includes('buenos')) {
-                            addQuickReplies([
-                                "Plantas para dolor",
-                                "Remedios digestivos", 
-                                "Ayuda para estrés"
-                            ]);
-                        }
-                    }, 1500);
-                }
-            }
-            
-            function addUserMessage(text) {
-                const messageElement = document.createElement('div');
-                messageElement.className = 'message user-message';
-                messageElement.textContent = text;
-                chatbotMessages.appendChild(messageElement);
-                scrollToBottom();
-            }
-            
-            function addBotMessage(text) {
-                const messageElement = document.createElement('div');
-                messageElement.className = 'message bot-message';
-                messageElement.innerHTML = text;
-                chatbotMessages.appendChild(messageElement);
-                scrollToBottom();
-            }
-            
-            function addQuickReplies(replies) {
-                const quickRepliesContainer = document.createElement('div');
-                quickRepliesContainer.className = 'quick-replies';
-                
-                replies.forEach(reply => {
-                    const quickReply = document.createElement('div');
-                    quickReply.className = 'quick-reply';
-                    quickReply.textContent = reply;
-                    quickReply.addEventListener('click', () => {
-                        addUserMessage(reply);
-                        showTypingIndicator();
-                        
-                        setTimeout(() => {
-                            removeTypingIndicator();
-                            const response = getBotResponse(reply);
-                            addBotMessage(response);
-                        }, 1000);
-                    });
-                    
-                    quickRepliesContainer.appendChild(quickReply);
-                });
-                
-                chatbotMessages.appendChild(quickRepliesContainer);
-                scrollToBottom();
-            }
-            
-            function showTypingIndicator() {
-                const typingElement = document.createElement('div');
-                typingElement.className = 'typing-indicator';
-                typingElement.id = 'typingIndicator';
-                typingElement.innerHTML = `
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                `;
-                chatbotMessages.appendChild(typingElement);
-                scrollToBottom();
-            }
-            
-            function removeTypingIndicator() {
-                const typingIndicator = document.getElementById('typingIndicator');
-                if (typingIndicator) {
-                    typingIndicator.remove();
-                }
-            }
-            
-            function scrollToBottom() {
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }
-            
-            function getBotResponse(message) {
-                const lowerMessage = message.toLowerCase();
-                
-                // Buscar coincidencia en los patrones
-                for (const [category, data] of Object.entries(chatbotKnowledge)) {
-                    if (category === 'default') continue;
-                    
-                    for (const pattern of data.patterns) {
-                        if (lowerMessage.includes(pattern)) {
-                            const responses = data.responses;
-                            return responses[Math.floor(Math.random() * responses.length)];
-                        }
-                    }
-                }
-                
-                // Respuesta por defecto
-                const defaultResponses = chatbotKnowledge.default.responses;
-                return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-            }
+        // Función para obtener el nombre de imagen correcto
+        function getImagenPlanta(plantId) {
+            const imagenes = {
+                'epazote': 'Epazote.png',
+                'hierbabuena': 'Hierbabuena.png',
+                'lavanda': 'Lavanda.jpg',
+                'manzanilla': 'Manzanilla.png',
+                'sabila': 'Sabila.png',
+                'bugambilia': 'Bugambilia.png',
+                'eucalipto': 'Eucalipto.png',
+                'geranio': 'Geranio.png',
+                'ruda': 'Ruda.png',
+                'toronjil_rojo': 'Toronjil rojo.png',
+                'ajo': 'Ajo.png',
+                'albahaca': 'Albahaca.jpg',
+                'arnica': 'Arnica.png',
+                'cempasuchil': 'Cempasuchil.png',
+                'cola_caballo': 'Cola de Caballo.jpg',
+                'guayaba': 'Guayaba.png',
+                'malva': 'Malva.jpg',
+                'sauco': 'Saúco.png',
+                'zacate_limon': 'Zacate Limon.jpg',
+                'limon': 'Limon.jpg',
+                'avena': 'Avena.png',
+                'laurel': 'Laurel.jpg',
+                'romero': 'Romero.png',
+                'dienteleon': 'Diente de leon.png',
+                'chayote': 'Chayote.png',
+                'nispero': 'Nispero.png',
+                'nopal': 'Nopal.png',
+                'cilantro': 'Cilantro.png'
+            };
+            return imagenes[plantId] || 'Manzanilla.png';
+        }
 
-            // Inicializar la página
+        // Mostrar página de inicio al cargar
+        document.addEventListener('DOMContentLoaded', function() {
             showHomePage();
         });
 
-        // Funciones de navegación CORREGIDAS
-        function showHomePage(event) {
-            if (event) event.preventDefault();
-            hideAllPages();
-            document.getElementById('home-page').style.display = 'block';
-            previousPage = currentPage;
+        // Función para ir a una página y guardar en el historial
+        function navigateTo(pageId) {
+            if (currentPage !== pageId) {
+                navigationHistory.push(currentPage);
+                currentPage = pageId;
+                hideAllPages();
+                const page = document.getElementById(pageId);
+                if (page) page.style.display = 'block';
+            }
+        }
+
+        // Función para volver a la página anterior
+        function goBack() {
+            if (navigationHistory.length > 0) {
+                const previousPageId = navigationHistory.pop();
+                currentPage = previousPageId;
+                hideAllPages();
+                const page = document.getElementById(previousPageId);
+                if (page) page.style.display = 'block';
+            } else {
+                showHomePage();
+            }
+        }
+
+        function showHomePage() {
+            navigationHistory = ['home-page'];
             currentPage = 'home-page';
+            hideAllPages();
+            const homePage = document.getElementById('home-page');
+            if (homePage) homePage.style.display = 'block';
         }
 
-        function showLocationPage(event) {
-            if (event) event.preventDefault();
-            hideAllPages();
-            document.getElementById('location-page').style.display = 'block';
-            previousPage = currentPage;
-            currentPage = 'location-page';
+        function showLocationPage() {
+            navigateTo('location-page');
         }
 
-        function showContactPage(event) {
-            if (event) event.preventDefault();
-            hideAllPages();
-            document.getElementById('contact-page').style.display = 'block';
-            previousPage = currentPage;
-            currentPage = 'contact-page';
+        function showContactPage() {
+            navigateTo('contact-page');
         }
 
-        function showAboutPage(event) {
-            if (event) event.preventDefault();
-            hideAllPages();
-            document.getElementById('about-page').style.display = 'block';
-            previousPage = currentPage;
-            currentPage = 'about-page';
+        function showAboutPage() {
+            navigateTo('about-page');
         }
 
         function hideAllPages() {
@@ -2125,7 +1759,6 @@
                 'stress-page', 'digestion-page', 'fever-page', 'pain-page'
             ];
             
-            // Ocultar todas las páginas principales
             pages.forEach(page => {
                 const element = document.getElementById(page);
                 if (element) {
@@ -2133,7 +1766,6 @@
                 }
             });
             
-            // También ocultar todas las páginas de plantas creadas dinámicamente
             const plantPages = document.querySelectorAll('.plant-detail-page');
             plantPages.forEach(page => {
                 page.style.display = 'none';
@@ -2141,53 +1773,18 @@
         }
 
         function showConditionPage(condition) {
-            hideAllPages();
-            const page = document.getElementById(`${condition}-page`);
-            if (page) {
-                page.style.display = 'block';
-                previousPage = currentPage;
-                currentPage = `${condition}-page`;
-            }
+            navigateTo(`${condition}-page`);
         }
 
-        // NUEVA FUNCIÓN: Regresar a la página anterior
-        function returnToPreviousPage() {
-            if (previousPage && previousPage !== currentPage) {
-                // Regresar a la página anterior
-                hideAllPages();
-                
-                // Buscar la página anterior
-                if (previousPage === 'home-page') {
-                    showHomePage();
-                } else if (previousPage === 'location-page') {
-                    showLocationPage();
-                } else if (previousPage === 'contact-page') {
-                    showContactPage();
-                } else if (previousPage === 'about-page') {
-                    showAboutPage();
-                } else if (previousPage.includes('-page')) {
-                    // Para páginas de condición
-                    const condition = previousPage.replace('-page', '');
-                    showConditionPage(condition);
-                } else {
-                    // Si no se encuentra, mostrar página de inicio
-                    showHomePage();
-                }
-            } else {
-                // Si no hay página anterior, ir al inicio
-                showHomePage();
-            }
-        }
-
+        // Función para mostrar página de planta
         function showPlantPage(plantId) {
-            // Guardar la página actual como anterior antes de cambiar
-            previousPage = currentPage;
-            currentPage = `${plantId}-page`;
+            // Guardar la página actual antes de cambiar
+            if (currentPage !== `${plantId}-page`) {
+                navigationHistory.push(currentPage);
+            }
             
-            // Primero ocultar todas las páginas
             hideAllPages();
             
-            // Verificar si tenemos datos para esta planta
             const planta = plantasData[plantId];
             if (!planta) {
                 showHomePage();
@@ -2195,49 +1792,22 @@
                 return;
             }
             
-            // Verificar si la página ya existe
             let page = document.getElementById(`${plantId}-page`);
             
             if (!page) {
-                // Crear la página dinámicamente
                 page = document.createElement('section');
                 page.id = `${plantId}-page`;
                 page.className = 'plant-detail-page';
                 
-                // Determinar qué imagen usar
-                let imagen = '';
-                switch(plantId) {
-                    case 'epazote': imagen = 'Epazote.png'; break;
-                    case 'hierbabuena': imagen = 'Hierbabuena.png'; break;
-                    case 'lavanda': imagen = 'Lavanda.jpg'; break;
-                    case 'manzanilla': imagen = 'Manzanilla.png'; break;
-                    case 'sabila': imagen = 'Sabila.png'; break;
-                    case 'bugambilia': imagen = 'Bugambilia.png'; break;
-                    case 'eucalipto': imagen = 'Eucalipto.png'; break;
-                    case 'geranio': imagen = 'Geranio.png'; break;
-                    case 'ruda': imagen = 'Ruda.png'; break;
-                    case 'toronjil_rojo': imagen = 'Toronjil rojo.png'; break;
-                    case 'ajo': imagen = 'Ajo.png'; break;
-                    case 'albahaca': imagen = 'Albahaca.jpg'; break;
-                    case 'arnica': imagen = 'Arnica.png'; break;
-                    case 'cempasuchil': imagen = 'Cempasuchil.png'; break;
-                    case 'cola_caballo': imagen = 'Cola de Caballo.jpg'; break;
-                    case 'guayaba': imagen = 'Guayaba.png'; break;
-                    case 'malva': imagen = 'Malva.jpg'; break;
-                    case 'sauco': imagen = 'Saúco.png'; break;
-                    case 'zacate_limon': imagen = 'Zacate Limon.jpg'; break;
-                    default: imagen = 'Manzanilla.png'; // Imagen por defecto
-                }
+                const imagen = getImagenPlanta(plantId);
                 
-                // Crear el contenido de la página
                 page.innerHTML = `
                     <div class="plant-detail-header">
                         <div class="container">
                             <h1>${planta.nombre}</h1>
                             <p>${planta.nombreCientifico} - Planta medicinal de Zacapoaxtla</p>
-                            <!-- BOTONES MEJORADOS: Volver al inicio y Regresar -->
-                            <button class="back-btn" onclick="showHomePage(event)">Volver al Inicio</button>
-                            <button class="return-btn" onclick="returnToPreviousPage()">Regresar</button>
+                            <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                            <button class="return-btn" onclick="window.goBack()">Regresar</button>
                         </div>
                     </div>
                     
@@ -2251,7 +1821,7 @@
                                     <p><strong>Nombre científico:</strong> ${planta.nombreCientifico}</p>
                                     <p><strong>Familia:</strong> ${planta.familia}</p>
                                     <p><strong>Partes utilizadas:</strong> ${planta.partesUtilizadas}</p>
-                                    <p><strong>Ubicación en Zacapoaxtla:</strong> ${planta.ubicacion}</p>
+                                    <p><strong>Ubicación en Zacapoaxtla:</strong> ${planta.ubicacion || 'Información no disponible'}</p>
                                 </div>
                                 
                                 <div class="info-section">
@@ -2261,7 +1831,7 @@
                                 
                                 <div class="info-section">
                                     <h3>🧪 Propiedades</h3>
-                                    <p>${planta.propiedades}</p>
+                                    <p>${planta.propiedades || 'Información no disponible'}</p>
                                 </div>
                                 
                                 <div class="precaution-card">
@@ -2277,16 +1847,21 @@
                     </div>
                 `;
                 
-                // Agregar la página al documento
                 document.body.appendChild(page);
             }
             
-            // Mostrar la página
             page.style.display = 'block';
+            currentPage = `${plantId}-page`;
         }
+
+        // Hacer las funciones globales
+        window.showHomePage = showHomePage;
+        window.showLocationPage = showLocationPage;
+        window.showContactPage = showContactPage;
+        window.showAboutPage = showAboutPage;
+        window.showConditionPage = showConditionPage;
+        window.goBack = goBack;
+        window.showPlantPage = showPlantPage;
     </script>
 </body>
-
 </html>
-
-
