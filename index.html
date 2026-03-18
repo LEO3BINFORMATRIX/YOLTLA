@@ -818,7 +818,7 @@
             font-weight: 500;
         }
         
-        /* Estilos para el reproductor de audio mejorado */
+        /* Estilos para el reproductor de audio - ESTILO IMAGEN */
         .plant-detail-left {
             display: flex;
             flex-direction: column;
@@ -826,92 +826,69 @@
         }
         
         .plant-audio-player {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
-            border-radius: 80px;
-            padding: 15px 25px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 15px;
-            box-shadow: 0 15px 30px rgba(45, 90, 45, 0.2);
-            border: 2px solid rgba(168, 213, 168, 0.6);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15);
+            border: 1px solid #e0e0e0;
         }
         
-        .plant-audio-player::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, #2d5a2d, #a8d5a8, #2d5a2d);
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .plant-audio-player:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 35px rgba(45, 90, 45, 0.25);
+        .audio-logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
         }
         
         .audio-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
-            border-radius: 50%;
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 8px 15px rgba(45, 90, 45, 0.3);
-            position: relative;
-            z-index: 2;
-            border: 3px solid rgba(255, 255, 255, 0.3);
         }
         
         .audio-icon {
-            width: 60%;
-            height: 60%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            filter: brightness(0) invert(1);
         }
         
         .audio-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 2;
+            text-align: center;
+            margin-bottom: 5px;
         }
         
         .audio-title {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
         }
         
         .audio-name {
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #2d5a2d;
-            line-height: 1.3;
-            text-shadow: 1px 1px 2px rgba(168, 213, 168, 0.3);
+            line-height: 1.2;
         }
         
         .audio-controls {
             display: flex;
-            gap: 10px;
-            position: relative;
-            z-index: 2;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 5px;
         }
         
         .audio-play-btn, .audio-pause-btn {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border: none;
             border-radius: 50%;
             display: flex;
@@ -919,51 +896,29 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(45, 90, 45, 0.3);
-            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .audio-play-btn {
-            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
+            background: #2d5a2d;
         }
         
         .audio-pause-btn {
-            background: linear-gradient(135deg, #e6a700, #b8860b);
+            background: #e6a700;
         }
         
         .audio-play-btn:hover, .audio-pause-btn:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 20px rgba(45, 90, 45, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(45, 90, 45, 0.3);
         }
         
         .play-icon, .pause-icon {
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
         .pause-icon {
-            font-size: 1rem;
-        }
-        
-        /* Ajuste responsive para el reproductor */
-        @media (max-width: 768px) {
-            .plant-audio-player {
-                padding: 12px 20px;
-            }
-            
-            .audio-logo {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .audio-name {
-                font-size: 1rem;
-            }
-            
-            .audio-play-btn, .audio-pause-btn {
-                width: 40px;
-                height: 40px;
-            }
+            font-size: 1.1rem;
         }
         
         /* Responsive */
@@ -1032,6 +987,10 @@
             
             .about-stat-number {
                 font-size: 2.5rem;
+            }
+            
+            .audio-name {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -1921,6 +1880,9 @@
         // Variable para guardar el historial de navegación
         let navigationHistory = ['home-page'];
         let currentPage = 'home-page';
+        
+        // Variable para controlar el audio actual
+        let currentAudio = null;
 
         // Base de datos de plantas con TODOS los datos
         const plantasData = {
@@ -2248,6 +2210,26 @@
             return audios[plantId] || '';
         }
 
+        // Función para reproducir audio (solo uno a la vez)
+        function playAudio(audioId) {
+            const audio = document.getElementById(audioId);
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            audio.play();
+            currentAudio = audio;
+        }
+
+        // Función para pausar audio
+        function pauseAudio(audioId) {
+            const audio = document.getElementById(audioId);
+            audio.pause();
+            if (currentAudio === audio) {
+                currentAudio = null;
+            }
+        }
+
         // Mostrar página de inicio al cargar
         document.addEventListener('DOMContentLoaded', function() {
             showHomePage();
@@ -2361,20 +2343,22 @@
                             <div class="plant-detail-left">
                                 <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
                                 
-                                <!-- Reproductor de audio mejorado con logo y botón de pausa -->
+                                <!-- Reproductor de audio estilo imagen -->
                                 <div class="plant-audio-player">
-                                    <div class="audio-logo">
-                                        <img src="audio.png" alt="Audio" class="audio-icon">
+                                    <div class="audio-logo-container">
+                                        <div class="audio-logo">
+                                            <img src="audio.png" alt="Audio" class="audio-icon">
+                                        </div>
                                     </div>
                                     <div class="audio-info">
-                                        <span class="audio-title">Escucha la pronunciación</span>
+                                        <span class="audio-title">ESCUCHA LA PRONUNCIACIÓN</span>
                                         <span class="audio-name">${planta.nombre}</span>
                                     </div>
                                     <div class="audio-controls">
-                                        <button class="audio-play-btn" onclick="document.getElementById('audio-${plantId}').play()">
+                                        <button class="audio-play-btn" onclick="playAudio('audio-${plantId}')">
                                             <span class="play-icon">▶</span>
                                         </button>
-                                        <button class="audio-pause-btn" onclick="document.getElementById('audio-${plantId}').pause()">
+                                        <button class="audio-pause-btn" onclick="pauseAudio('audio-${plantId}')">
                                             <span class="pause-icon">⏸️</span>
                                         </button>
                                     </div>
@@ -2429,6 +2413,8 @@
         window.showConditionPage = showConditionPage;
         window.goBack = goBack;
         window.showPlantPage = showPlantPage;
+        window.playAudio = playAudio;
+        window.pauseAudio = pauseAudio;
     </script>
 </body>
 </html>
