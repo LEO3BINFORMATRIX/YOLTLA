@@ -159,6 +159,7 @@
             background-color: #e8f5e8;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         .plant-info {
@@ -337,31 +338,13 @@
         }
         
         .plant-detail-header {
-            background: linear-gradient(rgba(45, 90, 45, 0.85), rgba(45, 90, 45, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M50,5 C70,5 85,20 85,40 C85,60 70,75 50,75 C30,75 15,60 15,40 C15,20 30,5 50,5 Z" fill="%23ffffff"/></svg>');
-            background-size: 150px;
+            background: linear-gradient(rgba(45, 90, 45, 0.85), rgba(45, 90, 45, 0.9));
             color: white;
             padding: 60px 0;
             text-align: center;
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
-        }
-        
-        .plant-detail-header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" opacity="0.05"><path d="M100,20 C120,20 140,30 150,50 C160,70 160,90 150,110 C140,130 120,140 100,140 C80,140 60,130 50,110 C40,90 40,70 50,50 C60,30 80,20 100,20 Z" fill="%23ffffff"/></svg>');
-            background-size: 300px;
-            animation: floatBackground 60s linear infinite;
-        }
-        
-        @keyframes floatBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(300px, 300px); }
         }
         
         .plant-detail-header h1 {
@@ -401,6 +384,7 @@
             height: 400px;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             background-color: #e8f5e8;
         }
@@ -1413,7 +1397,7 @@
         let navigationHistory = ['home-page'];
         let currentPage = 'home-page';
 
-        // Base de datos de plantas (completa)
+        // Base de datos de plantas con TODOS los datos
         const plantasData = {
             "epazote": {
                 nombre: "Epazote",
@@ -1669,7 +1653,7 @@
             }
         };
 
-        // Función para obtener el nombre de imagen correcto
+        // Función para obtener el nombre de imagen correcto según tu repositorio
         function getImagenPlanta(plantId) {
             const imagenes = {
                 'epazote': 'Epazote.png',
