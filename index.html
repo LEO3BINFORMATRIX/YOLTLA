@@ -818,7 +818,7 @@
             font-weight: 500;
         }
         
-        /* Estilos para el reproductor de audio */
+        /* Estilos para el reproductor de audio mejorado */
         .plant-detail-left {
             display: flex;
             flex-direction: column;
@@ -827,31 +827,48 @@
         
         .plant-audio-player {
             background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
-            border-radius: 60px;
+            border-radius: 80px;
             padding: 15px 25px;
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15);
-            border: 2px solid rgba(168, 213, 168, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 30px rgba(45, 90, 45, 0.2);
+            border: 2px solid rgba(168, 213, 168, 0.6);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plant-audio-player::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #2d5a2d, #a8d5a8, #2d5a2d);
+            opacity: 0.1;
+            z-index: 0;
         }
         
         .plant-audio-player:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(45, 90, 45, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 35px rgba(45, 90, 45, 0.25);
         }
         
         .audio-logo {
-            width: 50px;
-            height: 50px;
-            background: #2d5a2d;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 5px 10px rgba(45, 90, 45, 0.3);
+            box-shadow: 0 8px 15px rgba(45, 90, 45, 0.3);
+            position: relative;
+            z-index: 2;
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
         
         .audio-icon {
@@ -865,26 +882,36 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 2;
         }
         
         .audio-title {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
         
         .audio-name {
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             color: #2d5a2d;
             line-height: 1.3;
+            text-shadow: 1px 1px 2px rgba(168, 213, 168, 0.3);
         }
         
-        .audio-play-btn {
+        .audio-controls {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .audio-play-btn, .audio-pause-btn {
             width: 45px;
             height: 45px;
-            background: #2d5a2d;
             border: none;
             border-radius: 50%;
             display: flex;
@@ -896,19 +923,26 @@
             flex-shrink: 0;
         }
         
-        .audio-play-btn:hover {
-            background: #3a7a3a;
-            transform: scale(1.1);
+        .audio-play-btn {
+            background: linear-gradient(135deg, #2d5a2d, #3a7a3a);
         }
         
-        .audio-play-btn.playing {
-            background: #e6a700;
+        .audio-pause-btn {
+            background: linear-gradient(135deg, #e6a700, #b8860b);
         }
         
-        .play-icon {
+        .audio-play-btn:hover, .audio-pause-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(45, 90, 45, 0.4);
+        }
+        
+        .play-icon, .pause-icon {
             color: white;
             font-size: 1.2rem;
-            margin-left: 2px;
+        }
+        
+        .pause-icon {
+            font-size: 1rem;
         }
         
         /* Ajuste responsive para el reproductor */
@@ -918,15 +952,15 @@
             }
             
             .audio-logo {
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
             }
             
             .audio-name {
                 font-size: 1rem;
             }
             
-            .audio-play-btn {
+            .audio-play-btn, .audio-pause-btn {
                 width: 40px;
                 height: 40px;
             }
@@ -2327,7 +2361,7 @@
                             <div class="plant-detail-left">
                                 <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
                                 
-                                <!-- Reproductor de audio -->
+                                <!-- Reproductor de audio mejorado con logo y botón de pausa -->
                                 <div class="plant-audio-player">
                                     <div class="audio-logo">
                                         <img src="audio.png" alt="Audio" class="audio-icon">
@@ -2336,9 +2370,14 @@
                                         <span class="audio-title">Escucha la pronunciación</span>
                                         <span class="audio-name">${planta.nombre}</span>
                                     </div>
-                                    <button class="audio-play-btn" onclick="this.classList.toggle('playing'); document.getElementById('audio-${plantId}').play()">
-                                        <span class="play-icon">▶</span>
-                                    </button>
+                                    <div class="audio-controls">
+                                        <button class="audio-play-btn" onclick="document.getElementById('audio-${plantId}').play()">
+                                            <span class="play-icon">▶</span>
+                                        </button>
+                                        <button class="audio-pause-btn" onclick="document.getElementById('audio-${plantId}').pause()">
+                                            <span class="pause-icon">⏸️</span>
+                                        </button>
+                                    </div>
                                     <audio id="audio-${plantId}" src="${audioFile}" preload="none"></audio>
                                 </div>
                             </div>
