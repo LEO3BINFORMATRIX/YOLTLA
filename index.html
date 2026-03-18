@@ -818,6 +818,120 @@
             font-weight: 500;
         }
         
+        /* Estilos para el reproductor de audio */
+        .plant-detail-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .plant-audio-player {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+            border-radius: 60px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 25px rgba(45, 90, 45, 0.15);
+            border: 2px solid rgba(168, 213, 168, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .plant-audio-player:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(45, 90, 45, 0.2);
+        }
+        
+        .audio-logo {
+            width: 50px;
+            height: 50px;
+            background: #2d5a2d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(45, 90, 45, 0.3);
+        }
+        
+        .audio-icon {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        .audio-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .audio-title {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .audio-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d5a2d;
+            line-height: 1.3;
+        }
+        
+        .audio-play-btn {
+            width: 45px;
+            height: 45px;
+            background: #2d5a2d;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(45, 90, 45, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .audio-play-btn:hover {
+            background: #3a7a3a;
+            transform: scale(1.1);
+        }
+        
+        .audio-play-btn.playing {
+            background: #e6a700;
+        }
+        
+        .play-icon {
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 2px;
+        }
+        
+        /* Ajuste responsive para el reproductor */
+        @media (max-width: 768px) {
+            .plant-audio-player {
+                padding: 12px 20px;
+            }
+            
+            .audio-logo {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .audio-name {
+                font-size: 1rem;
+            }
+            
+            .audio-play-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -2065,6 +2179,41 @@
             return imagenes[plantId] || 'Manzanilla.png';
         }
 
+        // Función para obtener el nombre del archivo de audio
+        function getAudioPlanta(plantId) {
+            const audios = {
+                'epazote': 'epazote.m4a',
+                'hierbabuena': 'hierbabuena.m4a',
+                'lavanda': 'lavanda.m4a',
+                'manzanilla': 'manzanilla.m4a',
+                'sabila': 'sabila.m4a',
+                'bugambilia': 'bugambilia.m4a',
+                'eucalipto': 'eucalipto.m4a',
+                'geranio': 'geranio.m4a',
+                'ruda': 'ruda.m4a',
+                'toronjil_rojo': 'toronjil rojo.m4a',
+                'ajo': 'ajo.m4a',
+                'albahaca': 'albahaca.m4a',
+                'arnica': 'arnica.m4a',
+                'cempasuchil': 'cempasuchil.m4a',
+                'cola_caballo': 'cola de caballo.m4a',
+                'guayaba': 'guayaba.m4a',
+                'malva': 'malva.m4a',
+                'sauco': 'sauco.m4a',
+                'zacate_limon': 'zacate limon.m4a',
+                'limon': 'limon.m4a',
+                'avena': 'avena.m4a',
+                'laurel': 'laurel.m4a',
+                'romero': 'romero.m4a',
+                'dienteleon': 'diente de leon.m4a',
+                'chayote': 'chayote.m4a',
+                'nispero': 'nispero.m4a',
+                'nopal': 'nopal.m4a',
+                'cilantro': 'cilantro.m4a'
+            };
+            return audios[plantId] || '';
+        }
+
         // Mostrar página de inicio al cargar
         document.addEventListener('DOMContentLoaded', function() {
             showHomePage();
@@ -2161,6 +2310,7 @@
                 page.className = 'plant-detail-page';
                 
                 const imagen = getImagenPlanta(plantId);
+                const audioFile = getAudioPlanta(plantId);
                 
                 page.innerHTML = `
                     <div class="plant-detail-header">
@@ -2174,7 +2324,24 @@
                     
                     <div class="container">
                         <div class="plant-detail-content">
-                            <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
+                            <div class="plant-detail-left">
+                                <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
+                                
+                                <!-- Reproductor de audio -->
+                                <div class="plant-audio-player">
+                                    <div class="audio-logo">
+                                        <img src="audio.png" alt="Audio" class="audio-icon">
+                                    </div>
+                                    <div class="audio-info">
+                                        <span class="audio-title">Escucha la pronunciación</span>
+                                        <span class="audio-name">${planta.nombre}</span>
+                                    </div>
+                                    <button class="audio-play-btn" onclick="this.classList.toggle('playing'); document.getElementById('audio-${plantId}').play()">
+                                        <span class="play-icon">▶</span>
+                                    </button>
+                                    <audio id="audio-${plantId}" src="${audioFile}" preload="none"></audio>
+                                </div>
+                            </div>
                             
                             <div class="plant-detail-info">
                                 <div class="info-section">
