@@ -521,6 +521,303 @@
             color: #a8d5a8;
         }
         
+        /* ESTILOS MEJORADOS PARA ACERCA DE NOSOTROS */
+        .about-header {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 50%, #3a7a3a 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-header::before {
+            content: "🌿🌱🍃";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+            white-space: nowrap;
+        }
+        
+        .about-header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 50%, #f5f9f5 50%);
+        }
+        
+        .about-title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-title-span {
+            color: #a8d5a8;
+            font-weight: 300;
+        }
+        
+        .about-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-style: italic;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .about-subtitle::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #a8d5a8;
+            border-radius: 3px;
+        }
+        
+        .about-header-buttons {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-image-container {
+            margin: -60px 0 50px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .about-image-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px -15px rgba(45, 90, 45, 0.4);
+            position: relative;
+            border: 4px solid white;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.05);
+        }
+        
+        .about-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(45, 90, 45, 0.9), transparent);
+            color: white;
+            padding: 30px 20px 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .about-story-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(45, 90, 45, 0.1);
+            position: relative;
+            border: 1px solid rgba(168, 213, 168, 0.3);
+            text-align: center;
+        }
+        
+        .about-story-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: #e8f5e8;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -90px auto 20px;
+            box-shadow: 0 10px 25px rgba(45, 90, 45, 0.2);
+            border: 4px solid white;
+        }
+        
+        .about-story-title {
+            color: #2d5a2d;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-story-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #a8d5a8;
+            border-radius: 3px;
+        }
+        
+        .about-story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .about-grid-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 30px rgba(45, 90, 45, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(168, 213, 168, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-grid-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(45, 90, 45, 0.15);
+        }
+        
+        .about-grid-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2d5a2d, #a8d5a8, #2d5a2d);
+        }
+        
+        .about-grid-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: #e8f5e8;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .about-grid-title {
+            color: #2d5a2d;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-grid-text {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .about-quote {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d0e8d0 100%);
+            border-radius: 50px;
+            padding: 50px 40px;
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+            border-left: 8px solid #2d5a2d;
+            border-right: 8px solid #2d5a2d;
+        }
+        
+        .about-quote-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+        
+        .about-quote-text {
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #1a3a1a;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        .about-quote-author {
+            color: #2d5a2d;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 60px 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .about-stat-item {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .about-stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #2d5a2d;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 #a8d5a8;
+        }
+        
+        .about-stat-label {
+            font-size: 1.1rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -559,6 +856,34 @@
             
             .plant-detail-image {
                 height: 300px;
+            }
+            
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-story-card {
+                padding: 40px 20px;
+            }
+            
+            .about-story-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-quote-text {
+                font-size: 1.3rem;
+            }
+            
+            .about-stats {
+                gap: 30px;
+            }
+            
+            .about-stat-number {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -731,24 +1056,76 @@
         </div>
     </section>
 
-    <!-- PÁGINA ACERCA DE NOSOTROS -->
+    <!-- PÁGINA ACERCA DE NOSOTROS - VERSIÓN MEJORADA -->
     <section id="about-page" class="info-page">
-        <div class="info-header">
+        <div class="about-header">
             <div class="container">
-                <h1>Acerca de Nosotros</h1>
-                <p>Conoce la historia y misión de Yoltla.com</p>
-                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
-                <button class="return-btn" onclick="window.goBack()">Regresar</button>
+                <h1 class="about-title">Yoltla<span class="about-title-span">.com</span></h1>
+                <p class="about-subtitle">Raíces que Sanan, Tecnología que Conecta</p>
+                <div class="about-header-buttons">
+                    <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                    <button class="return-btn" onclick="window.goBack()">Regresar</button>
+                </div>
             </div>
         </div>
         
         <div class="container">
-            <div class="info-content">
-                <h2>Nuestra Historia</h2>
-                <p>Yoltla.com nació en 2025 como una iniciativa comunitaria para preservar y compartir el conocimiento tradicional sobre plantas medicinales de Zacapoaxtla y sus localidades.</p>
+            <!-- Sección de imagen destacada -->
+            <div class="about-image-container">
+                <div class="about-image-wrapper">
+                    <img src="Nosotros.jpeg" alt="Comunidad de Zacapoaxtla - Yoltla" class="about-image">
+                    <div class="about-image-overlay">
+                        <span>Zacapoaxtla, Puebla</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Historia - El Origen -->
+            <div class="about-story-card">
+                <div class="about-story-icon">🌱</div>
+                <h2 class="about-story-title">El Origen</h2>
+                <p class="about-story-text">En el corazón de la Sierra Nororiental de Puebla, en Zacapoaxtla, la naturaleza siempre ha sido nuestra primera farmacia. Durante generaciones, las plantas medicinales han sido el pilar de salud en nuestras comunidades, transmitiendo conocimientos de padres a hijos sobre cómo aliviar y prevenir padecimientos de forma natural.</p>
+                <p class="about-story-text">Sin embargo, notamos con preocupación que esta valiosa tradición comenzaba a desvanecerse ante el paso del tiempo, la falta de interés y la modernización. Así nació la inquietud de proteger este legado.</p>
+            </div>
+            
+            <!-- Grid de dos columnas para Nacimiento e Impulso -->
+            <div class="about-grid">
+                <div class="about-grid-card">
+                    <div class="about-grid-icon">✨</div>
+                    <h3 class="about-grid-title">El Nacimiento de Yoltla</h3>
+                    <p class="about-grid-text">Yoltla surge como una respuesta a la necesidad de rescatar la herbolaria regional y adaptarla al mundo digital. No solo queríamos conservar el conocimiento, sino hacerlo accesible, confiable y moderno.</p>
+                    <p class="about-grid-text">Entendemos que la sociedad actual busca alternativas naturales, económicas y con menos efectos secundarios, pero muchas veces falta la información correcta para usarlas con seguridad. Por eso, decidimos crear una plataforma que sirva de puente entre el saber de nuestros antepasados y la era tecnológica.</p>
+                </div>
                 
-                <h2>Nuestra Misión</h2>
-                <p>Preservar, documentar y compartir el conocimiento tradicional sobre plantas medicinales de Zacapoaxtla y sus localidades, facilitando el acceso a información confiable y promoviendo el uso responsable de los recursos naturales para el bienestar de la comunidad.</p>
+                <div class="about-grid-card">
+                    <div class="about-grid-icon">💚</div>
+                    <h3 class="about-grid-title">¿Qué nos impulsa?</h3>
+                    <p class="about-grid-text">Nuestra misión es diseñar un espacio interactivo donde cualquier persona pueda explorar un catálogo detallado de plantas medicinales. Nos regimos por altos estándares de calidad y accesibilidad, asegurando que cada usuario reciba información clara que le ayude a identificar y aprovechar las bondades de la tierra.</p>
+                    <p class="about-grid-text">En Yoltla, creemos que la inclusión digital y la herbolaria tradicional pueden ir de la mano para mejorar la salud de nuestra comunidad y preservar la esencia de Zacapoaxtla para las futuras generaciones.</p>
+                </div>
+            </div>
+            
+            <!-- Cita o frase destacada -->
+            <div class="about-quote">
+                <div class="about-quote-icon">🌿</div>
+                <p class="about-quote-text">"Preservar el conocimiento ancestral es sembrar salud para las generaciones del mañana"</p>
+                <p class="about-quote-author">— Yoltla, Medicina del Corazón</p>
+            </div>
+            
+            <!-- Datos destacados -->
+            <div class="about-stats">
+                <div class="about-stat-item">
+                    <div class="about-stat-number">+27</div>
+                    <div class="about-stat-label">Plantas documentadas</div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-number">17</div>
+                    <div class="about-stat-label">Localidades</div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-number">2025</div>
+                    <div class="about-stat-label">Año de fundación</div>
+                </div>
             </div>
         </div>
     </section>
