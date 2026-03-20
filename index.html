@@ -329,6 +329,345 @@
             margin-bottom: 10px;
         }
         
+        /* ===== ESTILOS MEJORADOS PARA CONTACTO ===== */
+        .contact-header {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 70%, #3e6b3e 100%);
+            color: white;
+            padding: 60px 0 50px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #a8d5a8;
+        }
+        
+        .contact-header::before {
+            content: "✉️📞📍";
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(-5deg);
+            white-space: nowrap;
+        }
+        
+        .contact-header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(168,213,168,0.2)" fill="none" stroke-width="2"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        
+        .contact-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-header-buttons {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(45, 90, 45, 0.1);
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+        
+        .contact-intro-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-intro h2 {
+            color: #2d5a2d;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-intro p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .contact-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(45, 90, 45, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(168, 213, 168, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(45, 90, 45, 0.25);
+        }
+        
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2d5a2d, #a8d5a8, #2d5a2d);
+        }
+        
+        .contact-card-header {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d0e8d0 100%);
+            padding: 30px 20px 20px;
+            text-align: center;
+            border-bottom: 1px solid #a8d5a8;
+        }
+        
+        .contact-avatar {
+            width: 100px;
+            height: 100px;
+            background: #2d5a2d;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(45, 90, 45, 0.3);
+        }
+        
+        .contact-avatar span {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .contact-card-header h3 {
+            color: #1a3a1a;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+        
+        .contact-role {
+            color: #2d5a2d;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 30px;
+        }
+        
+        .contact-card-body {
+            padding: 25px 20px;
+            flex: 1;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            transition: background 0.3s;
+        }
+        
+        .contact-info-item:hover {
+            background: #e8f5e8;
+        }
+        
+        .contact-info-icon {
+            width: 40px;
+            height: 40px;
+            background: #2d5a2d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-info-text {
+            flex: 1;
+            word-break: break-word;
+        }
+        
+        .contact-info-text strong {
+            display: block;
+            color: #2d5a2d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        
+        .contact-info-text span {
+            color: #333;
+            font-size: 0.95rem;
+        }
+        
+        .contact-card-footer {
+            padding: 0 20px 25px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .contact-action-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn-email {
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        .btn-email:hover {
+            background: #1a3a1a;
+            transform: scale(1.05);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        .btn-call {
+            background: #3a7a3a;
+            color: white;
+        }
+        
+        .btn-call:hover {
+            background: #2d5a2d;
+            transform: scale(1.05);
+        }
+        
+        .contact-alternative {
+            background: linear-gradient(135deg, #e8f5e8 0%, #ffffff 100%);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 2px dashed #2d5a2d;
+        }
+        
+        .contact-alternative h3 {
+            color: #2d5a2d;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-alternative p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-social-item {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(45, 90, 45, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 2px solid #2d5a2d;
+        }
+        
+        .contact-social-item:hover {
+            transform: scale(1.2);
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        .contact-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-left: 4px solid #2d5a2d;
+        }
+        
+        .contact-note p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .contact-note strong {
+            color: #2d5a2d;
+        }
+        
         /* PÁGINAS INDIVIDUALES DE PLANTAS */
         .plant-detail-page {
             display: none;
@@ -1296,6 +1635,22 @@
             .location-card {
                 padding: 25px;
             }
+            
+            .contact-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-header p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card-footer {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -1535,29 +1890,139 @@
         </div>
     </section>
 
-    <!-- PÁGINA DE CONTACTO -->
+    <!-- ===== PÁGINA DE CONTACTO MEJORADA ===== -->
     <section id="contact-page" class="info-page">
-        <div class="info-header">
+        <div class="contact-header">
             <div class="container">
                 <h1>Contáctanos</h1>
-                <p>Estamos aquí para ayudarte y escucharte</p>
-                <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
-                <button class="return-btn" onclick="window.goBack()">Regresar</button>
+                <p>Estamos aquí para ayudarte y escucharte - Conoce al equipo de Yoltla</p>
+                <div class="contact-header-buttons">
+                    <button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button>
+                    <button class="return-btn" onclick="window.goBack()">Regresar</button>
+                </div>
             </div>
         </div>
         
         <div class="container">
-            <div class="info-content">
-                <h2>Información de Contacto</h2>
-                <p>Si tienes preguntas, comentarios, deseas contribuir con información sobre plantas medicinales de la región o necesitas asesoría sobre el uso responsable de plantas medicinales, no dudes en contactarnos.</p>
+            <!-- Mensaje de introducción -->
+            <div class="contact-intro">
+                <div class="contact-intro-icon">🌿</div>
+                <h2>Conecta con nosotros</h2>
+                <p>Si tienes preguntas, comentarios, deseas contribuir con información sobre plantas medicinales de la región o necesitas asesoría sobre el uso responsable de plantas medicinales, no dudes en contactar directamente a cualquier miembro de nuestro equipo.</p>
+            </div>
+            
+            <!-- Grid de tarjetas del equipo -->
+            <div class="contact-team-grid">
+                <!-- Tarjeta de Azucena -->
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-avatar">
+                            <span>👩</span>
+                        </div>
+                        <h3>Azucena Tepetzinta Amel</h3>
+                        <span class="contact-role">Investigadora Etnobotánica</span>
+                    </div>
+                    <div class="contact-card-body">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">✉️</div>
+                            <div class="contact-info-text">
+                                <strong>Correo electrónico</strong>
+                                <span>azucenaamel@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📞</div>
+                            <div class="contact-info-text">
+                                <strong>Teléfono</strong>
+                                <span>233 117 1598</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card-footer">
+                        <a href="mailto:azucenaamel@gmail.com" class="contact-action-btn btn-email" target="_blank">
+                            <span>✉️</span> Email
+                        </a>
+                        <a href="https://wa.me/522331171598?text=Hola%20Azucena,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
+                            <span>📱</span> WhatsApp
+                        </a>
+                    </div>
+                </div>
                 
-                <h3>Medios de contacto directo:</h3>
-                <ul>
-                    <li><strong>Correo electrónico:</strong> info@yoltla.com</li>
-                    <li><strong>Teléfono:</strong> +52 233 123 4567</li>
-                    <li><strong>WhatsApp:</strong> +52 233 987 6543</li>
-                    <li><strong>Dirección:</strong> Plaza Central, Zacapoaxtla, Puebla, México</li>
-                </ul>
+                <!-- Tarjeta de Dolores -->
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-avatar">
+                            <span>👩</span>
+                        </div>
+                        <h3>Dolores García Domínguez</h3>
+                        <span class="contact-role">Especialista en Herbolaria</span>
+                    </div>
+                    <div class="contact-card-body">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">✉️</div>
+                            <div class="contact-info-text">
+                                <strong>Correo electrónico</strong>
+                                <span>doloresgarciadominguez350@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📞</div>
+                            <div class="contact-info-text">
+                                <strong>Teléfono</strong>
+                                <span>233 144 5453</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card-footer">
+                        <a href="mailto:doloresgarciadominguez350@gmail.com" class="contact-action-btn btn-email" target="_blank">
+                            <span>✉️</span> Email
+                        </a>
+                        <a href="https://wa.me/522331445453?text=Hola%20Dolores,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
+                            <span>📱</span> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta de Leonardo -->
+                <div class="contact-card">
+                    <div class="contact-card-header">
+                        <div class="contact-avatar">
+                            <span>👨</span>
+                        </div>
+                        <h3>LEONARDO CONTRERAS HERNANDEZ</h3>
+                        <span class="contact-role">Coordinador Digital</span>
+                    </div>
+                    <div class="contact-card-body">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">✉️</div>
+                            <div class="contact-info-text">
+                                <strong>Correo electrónico</strong>
+                                <span>leopuebladigital@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">📞</div>
+                            <div class="contact-info-text">
+                                <strong>Teléfono</strong>
+                                <span>233 130 5897</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card-footer">
+                        <a href="mailto:leopuebladigital@gmail.com" class="contact-action-btn btn-email" target="_blank">
+                            <span>✉️</span> Email
+                        </a>
+                        <a href="https://wa.me/522331305897?text=Hola%20Leonardo,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
+                            <span>📱</span> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nota final -->
+            <div class="contact-note">
+                <p><strong>📍 Instituto Tecnologico Superior de Zacapoaxtla, Puebla, México</strong> — Pagina disponible a cualquier horario que gusten.</p>
+                <p style="margin-top: 10px;">🌿 <strong>Yoltla.com</strong> - Medicina del Corazón, preservando el conocimiento ancestral de la Sierra Norte de Puebla.</p>
             </div>
         </div>
     </section>
