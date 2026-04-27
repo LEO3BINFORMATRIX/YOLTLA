@@ -222,6 +222,56 @@
             text-decoration: underline;
         }
         
+        /* ESTILOS PARA LOS BOTONES DE AUDIO EN LA PÁGINA DE DETALLE */
+        .audio-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            margin: 10px 0 15px;
+            padding: 8px 12px;
+            background: #e8f5e8;
+            border-radius: 40px;
+            width: fit-content;
+        }
+        
+        .audio-label-point {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2d5a2d;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #a8d5a8;
+        }
+        
+        .audio-play-point, .audio-pause-point {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+        }
+        
+        .audio-play-point {
+            background: #2d5a2d;
+            color: white;
+        }
+        
+        .audio-pause-point {
+            background: #e6a700;
+            color: white;
+        }
+        
+        .audio-play-point:hover, .audio-pause-point:hover {
+            transform: scale(1.1);
+        }
+        
         /* Sección de condiciones */
         .conditions {
             margin-bottom: 50px;
@@ -1797,7 +1847,6 @@
 
     <!-- Página de inicio -->
     <section id="home-page">
-        <!-- Sección principal - PORTADA MEJORADA -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Medicina del Corazón</h1>
@@ -1805,9 +1854,7 @@
             </div>
         </section>
 
-        <!-- Contenido principal -->
         <main class="container">
-            <!-- Plantas destacadas -->
             <h2 class="section-title">Plantas Destacadas</h2>
             <div class="featured-plants">
                 <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
@@ -1838,7 +1885,6 @@
                 </div>
             </div>
 
-            <!-- Navegar por condición -->
             <h2 class="section-title">Navegar por Condición</h2>
             <div class="conditions">
                 <div class="conditions-grid">
@@ -1880,9 +1926,7 @@
         </div>
         
         <div class="container">
-            <!-- Grid de dos columnas para información principal -->
             <div class="location-grid">
-                <!-- Tarjeta izquierda: Historia y significado -->
                 <div class="location-card">
                     <div class="location-icon">📜</div>
                     <h2>Raíces Históricas</h2>
@@ -1894,10 +1938,9 @@
                         <p>👥 <strong>Población:</strong> Aprox. 60,000 habitantes</p>
                     </div>
                     
-                    <p>La región es conocida por su impresionante biodiversidad y por tener una gran catidad de especies de plantas medicinales documentadas endémicas de la sierra.</p>
+                    <p>La región es conocida por su impresionante biodiversidad y por tener una gran cantidad de especies de plantas medicinales documentadas endémicas de la sierra.</p>
                 </div>
                 
-                <!-- Tarjeta derecha: Instituto Tecnológico -->
                 <div class="location-card">
                     <div class="location-icon">🏫</div>
                     <h2>Instituto Tecnológico Superior de Zacapoaxtla</h2>
@@ -1927,14 +1970,12 @@
                 </div>
             </div>
             
-            <!-- Divisor decorativo -->
             <div class="location-divider">
                 <span class="location-divider-line"></span>
                 <span class="location-divider-icon">🌱</span>
                 <span class="location-divider-line"></span>
             </div>
             
-            <!-- Sección de biodiversidad y patrimonio -->
             <div class="location-card" style="margin-bottom: 40px;">
                 <div class="location-icon">🌿</div>
                 <h2>Biodiversidad y Patrimonio Natural</h2>
@@ -1952,14 +1993,12 @@
                 <p>Esta riqueza natural ha permitido que las comunidades conserven conocimientos ancestrales sobre el uso de plantas para la salud, transmitidos de generación en generación.</p>
             </div>
             
-            <!-- Cita destacada -->
             <div class="location-quote">
                 <div class="location-quote-icon">🍃</div>
                 <p class="location-quote-text">"En cada planta de Zacapoaxtla habita la sabiduría de nuestros abuelos y la esperanza de nuestras futuras generaciones"</p>
                 <p class="location-quote-author">— Sabedores tradicionales de la Sierra Norte</p>
             </div>
             
-            <!-- Nota al pie -->
             <div class="location-footer-note">
                 <p style="font-size: 0.95rem; color: #666; font-style: italic;">* Fuente: Investigación comunitaria Yoltla.com en colaboración con el Tecnológico Superior de Zacapoaxtla y sabedores tradicionales de la región. Datos actualizados a 2025.</p>
                 <p style="margin-top: 10px; color: #2d5a2d;">🌿 "Medicina del Corazón" - Preservando el conocimiento ancestral</p>
@@ -2041,21 +2080,16 @@
         </div>
         
         <div class="container">
-            <!-- Mensaje de introducción -->
             <div class="contact-intro">
                 <div class="contact-intro-icon">🌿</div>
                 <h2>Conecta con nosotros</h2>
                 <p>Si tienes preguntas, comentarios, deseas contribuir con información sobre plantas medicinales de la región o necesitas asesoría sobre el uso responsable de plantas medicinales, no dudes en contactar directamente a cualquier miembro de nuestro equipo.</p>
             </div>
             
-            <!-- Grid de tarjetas del equipo -->
             <div class="contact-team-grid">
-                <!-- Tarjeta de Azucena -->
                 <div class="contact-card">
                     <div class="contact-card-header">
-                        <div class="contact-avatar">
-                            <span>👩</span>
-                        </div>
+                        <div class="contact-avatar"><span>👩</span></div>
                         <h3>Azucena Tepetzinta Amel</h3>
                         <span class="contact-role">Miembro del equipo Yoltla.com</span>
                     </div>
@@ -2076,21 +2110,14 @@
                         </div>
                     </div>
                     <div class="contact-card-footer">
-                        <a href="mailto:azucenaamel@gmail.com" class="contact-action-btn btn-email" target="_blank">
-                            <span>✉️</span> Email
-                        </a>
-                        <a href="https://wa.me/522331171598?text=Hola%20Azucena,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
-                            <span>📱</span> WhatsApp
-                        </a>
+                        <a href="mailto:azucenaamel@gmail.com" class="contact-action-btn btn-email" target="_blank"><span>✉️</span> Email</a>
+                        <a href="https://wa.me/522331171598?text=Hola%20Azucena,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank"><span>📱</span> WhatsApp</a>
                     </div>
                 </div>
                 
-                <!-- Tarjeta de Dolores -->
                 <div class="contact-card">
                     <div class="contact-card-header">
-                        <div class="contact-avatar">
-                            <span>👨</span>
-                        </div>
+                        <div class="contact-avatar"><span>👨</span></div>
                         <h3>Dolores García Domínguez</h3>
                         <span class="contact-role">Miembro del equipo Yoltla.com</span>
                     </div>
@@ -2111,21 +2138,14 @@
                         </div>
                     </div>
                     <div class="contact-card-footer">
-                        <a href="mailto:doloresgarciadominguez350@gmail.com" class="contact-action-btn btn-email" target="_blank">
-                            <span>✉️</span> Email
-                        </a>
-                        <a href="https://wa.me/522331445453?text=Hola%20Dolores,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
-                            <span>📱</span> WhatsApp
-                        </a>
+                        <a href="mailto:doloresgarciadominguez350@gmail.com" class="contact-action-btn btn-email" target="_blank"><span>✉️</span> Email</a>
+                        <a href="https://wa.me/522331445453?text=Hola%20Dolores,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank"><span>📱</span> WhatsApp</a>
                     </div>
                 </div>
                 
-                <!-- Tarjeta de Leonardo -->
                 <div class="contact-card">
                     <div class="contact-card-header">
-                        <div class="contact-avatar">
-                            <span>👨</span>
-                        </div>
+                        <div class="contact-avatar"><span>👨</span></div>
                         <h3>LEONARDO CONTRERAS HERNANDEZ</h3>
                         <span class="contact-role">Coordinador Digital</span>
                     </div>
@@ -2146,17 +2166,12 @@
                         </div>
                     </div>
                     <div class="contact-card-footer">
-                        <a href="mailto:leopuebladigital@gmail.com" class="contact-action-btn btn-email" target="_blank">
-                            <span>✉️</span> Email
-                        </a>
-                        <a href="https://wa.me/522331305897?text=Hola%20Leonardo,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank">
-                            <span>📱</span> WhatsApp
-                        </a>
+                        <a href="mailto:leopuebladigital@gmail.com" class="contact-action-btn btn-email" target="_blank"><span>✉️</span> Email</a>
+                        <a href="https://wa.me/522331305897?text=Hola%20Leonardo,%20te%20contacto%20desde%20Yoltla.com%20para%20consultar%20sobre%20plantas%20medicinales" class="contact-action-btn btn-whatsapp" target="_blank"><span>📱</span> WhatsApp</a>
                     </div>
                 </div>
             </div>
             
-            <!-- Nota final -->
             <div class="contact-note">
                 <p><strong>📍 Instituto Tecnologico Superior de Zacapoaxtla, Puebla, México</strong> — Página disponible a cualquier horario que gusten.</p>
                 <p style="margin-top: 10px;">🌿 <strong>Yoltla.com</strong> - Medicina del Corazón, preservando el conocimiento ancestral de la Sierra Norte de Puebla.</p>
@@ -2178,17 +2193,13 @@
         </div>
         
         <div class="container">
-            <!-- Sección de imagen destacada -->
             <div class="about-image-container">
                 <div class="about-image-wrapper">
                     <img src="Nosotros.jpeg" alt="Comunidad de Zacapoaxtla - Yoltla" class="about-image">
-                    <div class="about-image-overlay">
-                        <span>Zacapoaxtla, Puebla</span>
-                    </div>
+                    <div class="about-image-overlay"><span>Zacapoaxtla, Puebla</span></div>
                 </div>
             </div>
             
-            <!-- Historia - El Origen -->
             <div class="about-story-card">
                 <div class="about-story-icon">🌱</div>
                 <h2 class="about-story-title">El Origen</h2>
@@ -2196,7 +2207,6 @@
                 <p class="about-story-text">Sin embargo, notamos con preocupación que esta valiosa tradición comenzaba a desvanecerse ante el paso del tiempo, la falta de interés y la modernización. Así nació la inquietud de proteger este legado.</p>
             </div>
             
-            <!-- Grid de dos columnas para Nacimiento e Impulso -->
             <div class="about-grid">
                 <div class="about-grid-card">
                     <div class="about-grid-icon">✨</div>
@@ -2213,14 +2223,12 @@
                 </div>
             </div>
             
-            <!-- Cita o frase destacada -->
             <div class="about-quote">
                 <div class="about-quote-icon">🌿</div>
                 <p class="about-quote-text">"Preservar el conocimiento ancestral es sembrar salud para las generaciones del mañana"</p>
                 <p class="about-quote-author">— Yoltla, Medicina del Corazón</p>
             </div>
             
-            <!-- Datos destacados -->
             <div class="about-stats">
                 <div class="about-stat-item">
                     <div class="about-stat-number">+42</div>
@@ -2251,7 +2259,6 @@
         
         <div class="container">
             <div class="plants-grid">
-                <!-- Todas las plantas para estrés se mantienen igual -->
                 <div class="plant-card" onclick="window.showPlantPage('epazote')">
                     <div class="plant-img" style="background-image: url('Epazote.png')"></div>
                     <div class="plant-info">
@@ -2376,7 +2383,6 @@
         
         <div class="container">
             <div class="plants-grid">
-                <!-- Plantas para digestión se mantienen igual -->
                 <div class="plant-card" onclick="window.showPlantPage('hierbabuena')">
                     <div class="plant-img" style="background-image: url('Hierbabuena.png')"></div>
                     <div class="plant-info">
@@ -2501,7 +2507,6 @@
         
         <div class="container">
             <div class="plants-grid">
-                <!-- Plantas para fiebre e inflamación se mantienen igual -->
                 <div class="plant-card" onclick="window.showPlantPage('manzanilla')">
                     <div class="plant-img" style="background-image: url('Manzanilla.png')"></div>
                     <div class="plant-info">
@@ -2671,7 +2676,6 @@
         
         <div class="container">
             <div class="plants-grid">
-                <!-- Plantas para dolor se mantienen igual -->
                 <div class="plant-card" onclick="window.showPlantPage('epazote')">
                     <div class="plant-img" style="background-image: url('Epazote.png')"></div>
                     <div class="plant-info">
@@ -2945,208 +2949,10 @@
                 ubicacion: "",
                 usosMedicinales: "Internamente estimula la circulación, es antiespasmódica y astringente, eficaz para las insuficiencias cardiacas; externamente es antiinflamatoria, antibiótico, auxiliar en el tratamiento de golpes, gastritis, úlceras gástricas, heridas, llagas, dolor de ovarios, dolor renal, fiebre, inflamación estomacal, bronquitis, deficiencia visual, cirrosis, hemorroides, várices.",
                 propiedades: "Canino, fitosterina, arnicina, inulina, ácido palmítico, ácidos fenólicos, alcoholes terpénicos, colina, betaina y manganeso."
-            },
-            "bugambilia": {
-                nombre: "Bugambilia",
-                nombreCientifico: "Bougainvillea glabra Choisy",
-                familia: "Nyctaginaceae",
-                partesUtilizadas: "Flores",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Útil para el tratamiento de dolor de garganta, tos, asma, posee cualidades expectorantes; También actúa como un eficaz fluidificante de la sangre, cistitis, acné, aliviar la indigestión, diarrea y leucorrea.",
-                propiedades: ""
-            },
-            "eucalipto": {
-                nombre: "Eucalipto",
-                nombreCientifico: "Eucalyptus globolus",
-                familia: "Myrtaceae",
-                partesUtilizadas: "Hojas con ramas internas y frutos",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Resfriado común, sinusitis, efecto moderado contra la diabetes, eliminación de parásitos intestinales, fiebre, dolor de cabeza, dolor de garganta, dolor de pulmón.",
-                propiedades: "Eucaliptol, pineno, canfeno, cetonas, taninos, azuleno, flavona y aldehídos."
-            },
-            "geranio": {
-                nombre: "Geranio",
-                nombreCientifico: "Pelargonium graveolens",
-                familia: "Geraniaceae",
-                partesUtilizadas: "Flores y Hojas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic",
-                usosMedicinales: "Antiséptico, cicatrizante, reafirmante, control de hemorragias y úlceras, combate el cansancio y la debilidad muscular, mejora la apariencia de las várices.",
-                propiedades: "Citronela, geraniol, linalol, terpinol y alcohol de feniletil."
-            },
-            "ruda": {
-                nombre: "Ruda",
-                nombreCientifico: "Ruta graveolens",
-                familia: "Rutaceae",
-                partesUtilizadas: "Hojas, tallo y flores",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, San Juan Tahitic",
-                usosMedicinales: "Malestar digestivo, distensión abdominal, calambres musculares, histeria, parásitos intestinales, epilepsia, debilidad visual, dolor de cabeza, dolor de oído, dolores musculares, diarrea, ojos irritados, induce la fertilidad, uso místico (mal de ojo, mal aire, espanto, brujería).",
-                propiedades: "Alcaloides, cumarinas, psoralenos, aceite esencial, rutósido, tanino y bergapteno."
-            },
-            "toronjil_rojo": {
-                nombre: "Toronjil rojo",
-                nombreCientifico: "Agastache mexicana",
-                familia: "Libiatae",
-                partesUtilizadas: "Rama de la planta, hojas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, San Juan Tahitic",
-                usosMedicinales: "Nerviosismo, problemas gástricos, digestiva, alteraciones cardiovasculares, diarrea infantil, usos místicos (espanto, empacho, mal de ojo).",
-                propiedades: "Flavonoides, mentona, canfeno, pineno, limoneno, cimeno, citronelal y pulegona."
-            },
-            "ajo": {
-                nombre: "Ajo",
-                nombreCientifico: "Allium sativum",
-                familia: "Amaryllidaceae",
-                partesUtilizadas: "Bulbos y tallo",
-                ubicacion: "Nexticapan, Xilita, El progreso, Ahuacatlan, San Juan Tahitic",
-                usosMedicinales: "Antiséptico, hipotensor y diurético, también posee beneficios rejuvenecedores y sus propiedades son capaces de restaurar las arterias. Auxiliar en el tratamiento de diabetes, dolor de oídos, arterioesclerosis, hipertensión, pérdida de memoria en la vejez, gripe, resfriados, también ayuda a eliminar los parásitos intestinales, várices, reumatismo, parásitos internos, granos, mezquinos, callos, tos, asma, anginas, bronquitis, anemia, caries, caspa, promueve la menstruación, acelera el parto.",
-                propiedades: ""
-            },
-            "albahaca": {
-                nombre: "Albahaca",
-                nombreCientifico: "Ocimum basilicum L.",
-                familia: "Lamiaceae",
-                partesUtilizadas: "Hojas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Internamente ayuda a la lenta digestión, gases intestinales, espasmos gástricos, dolor de cabeza, tos y también es buen auxiliar en casos de depresión. Para uso externo sirve para limpiar heridas, eccemas y bajar la fiebre. Mareos, gastritis, parásitos, diarrea, empacho, antiinflamatoria, problemas renales, dolores reumáticos, tensión nerviosa, uso místico (limpias).",
-                propiedades: "Posee aceite esencial de cineol, eugenol, estragol, saponinas y linalol."
-            },
-            "cempasuchil": {
-                nombre: "Cempasúchil",
-                nombreCientifico: "Tagetes erecta",
-                familia: "Asteraceae",
-                partesUtilizadas: "Flor y Raíz",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Enfermedades respiratorias, trastornos digestivos, cólicos menstruales, baños después del parto, enfermedades de la piel, nervios, insomnio, ataques epilépticos, parásitos, ventosidad infantil, afecciones del estómago, empacho, diarrea, afecciones oculares, vómito, nervios, cólicos menstruales, promueve la lactancia, diabetes, reumatismo, atenuante de malestares de cáncer.",
-                propiedades: "Aceites esenciales como limoneno, linalol y geraniol, acetato, ocimeno, mentol y flavonoides."
-            },
-            "cola_caballo": {
-                nombre: "Cola de Caballo",
-                nombreCientifico: "Equisetum arvense",
-                familia: "Equisetaceae",
-                partesUtilizadas: "Hojas y Tallos",
-                ubicacion: "Atacpan, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Yanhuicapan, Comaltepec",
-                usosMedicinales: "Internamente para controlar las menstruaciones abundantes, enfermedades pulmonares crónicas, problemas de próstata, infecciones de encías y garganta; externamente se pueden realizar baños para combatir esguinces, combatir erupciones en la piel y eczemas.",
-                propiedades: "Silicio orgánico, magnesio, aluminio, potasio, cloro, oxigeno, hidrógeno, sodio y carbono."
-            },
-            "guayaba": {
-                nombre: "Guayaba",
-                nombreCientifico: "Psidium guajava",
-                familia: "Myrtaceae",
-                partesUtilizadas: "Hojas y tallos tiernos",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Diarrea, disentería, contra parásitos intestinales, alopecia, aljorra (en niños), problemas cutáneos, llagas, sarna, hinchazón de pies, afecciones del bazo, actividad antiespasmódica y antibacteriana.",
-                propiedades: "Flavonoides, quercetina y taninos."
-            },
-            "malva": {
-                nombre: "Malva",
-                nombreCientifico: "Malva sylvestris",
-                familia: "Malvaceae",
-                partesUtilizadas: "Toda la planta",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Internamente, combate la obesidad, laxante suave, resfriado común, gripe, faringitis; externamente es auxiliar en el tratamiento de piel irritada, picadura de insectos, heridas, infecciones vaginales (lavados), infecciones de garganta, afecciones renales, hidropesía, disentería, reumatismo, amigdalitis, hemorroides, afecciones vaginales.",
-                propiedades: "Vitaminas A, B1, B2 y C, antocianos, mucílagos, malvina y malvidina."
-            },
-            "sauco": {
-                nombre: "Saúco",
-                nombreCientifico: "Sambucus nigra",
-                familia: "Adoxaceae",
-                partesUtilizadas: "Flores, hojas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, San Juan Tahitic",
-                usosMedicinales: "Gripe, resfriado común, fiebre, gota, reumatismo, estreñimiento, cistitis, litiasis renal, estimular la producción de leche materna, caries, purgante, bilis, hemorroides, dolores musculares, calambres.",
-                propiedades: "Flavonoides, carotenos, mucílagos, potasio, alcaloides, colina, triterpenos, azúcar, pectina, antocianos, ácidos orgánicos, vitamina C y ácidos málico y valeriánico."
-            },
-            "zacate_limon": {
-                nombre: "Zacate Limón",
-                nombreCientifico: "Cymbopogon citratus",
-                familia: "Gramineae",
-                partesUtilizadas: "Hoja o rama completa",
-                ubicacion: "Atacpan, El molino, Nexticapan, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Comaltepec",
-                usosMedicinales: "Dolor estomacal, vómito, facilita la digestión, diarrea, desinflama el estómago, retención urinaria, tos, gripe, dolor de cabeza, fiebre, nervios, hemorragias vaginales, colesterol, ejerce acción hipotérmica, diurética, hipocolesterolémica, depresora del sistema nervioso.",
-                propiedades: "Limoneno, linalol, geraniol, mirceno y citral."
-            },
-            "limon": {
-                nombre: "Limón",
-                nombreCientifico: "Citrus limon",
-                familia: "Rutaceae",
-                partesUtilizadas: "Fruto, hojas, cáscara",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec",
-                usosMedicinales: "Bactericida, acidez estomacal, enfermedades pulmonares crónicas, hiperviscosidad en la sangre, malaria, mejora la memoria, previene gripe y resfriado común, desinfectante de heridas, fragilidad capilar, obesidad.",
-                propiedades: "Vitamina C, ácido cítrico, flavonoides, limoneno."
-            },
-            "avena": {
-                nombre: "Avena",
-                nombreCientifico: "Avena sativa",
-                familia: "Poaceae",
-                partesUtilizadas: "Semillas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan",
-                usosMedicinales: "Rejuvenecedora, diurética, energética, calma la ansiedad, alivia trastornos de la menopausia, empleada en casos de bronquitis.",
-                propiedades: "Proteínas, fibra, vitaminas B, minerales como magnesio, fósforo y hierro."
-            },
-            "laurel": {
-                nombre: "Laurel",
-                nombreCientifico: "Laurus nobilis",
-                familia: "Lauraceae",
-                partesUtilizadas: "Hojas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan",
-                usosMedicinales: "Tos, gastritis, vómitos provocados por la digestión, crisis asmáticas, palpitaciones cardiacas, diarrea, parálisis, esterilidad, reumas.",
-                propiedades: "Aceites esenciales (cineol, eugenol), taninos, flavonoides."
-            },
-            "romero": {
-                nombre: "Romero",
-                nombreCientifico: "Rosmarinus officinalis",
-                familia: "Lamiaceae",
-                partesUtilizadas: "Hojas y ramas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco",
-                usosMedicinales: "Hipotensión, decaimiento físico, insuficiencia biliar, mala memoria, colesterol elevado, amenorrea, espasmos estomacales, estimulante del sistema nervioso, padecimientos respiratorios.",
-                propiedades: "Aceite esencial (alcanfor, cineol, pineno), flavonoides, ácidos fenólicos."
-            },
-            "dienteleon": {
-                nombre: "Diente de León",
-                nombreCientifico: "Taraxacum officinale",
-                familia: "Asteraceae",
-                partesUtilizadas: "Hojas, raíz, toda la planta",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
-                usosMedicinales: "Alivia el estreñimiento, disuelve cálculos biliares, buen diurético, obesidad, enfermedades de la piel, reumatismo, gota.",
-                propiedades: "Vitaminas A, B, C, D, minerales (potasio, hierro, calcio), inulina, taraxacina."
-            },
-            "chayote": {
-                nombre: "Chayote",
-                nombreCientifico: "Sechium edule",
-                familia: "Cucurbitaceae",
-                partesUtilizadas: "Fruto, hojas, raíz",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
-                usosMedicinales: "Inflamación renal, cálculos renales, mal de orín, disminuye la presión arterial, actividad diurética, efecto hipotensor, actividad vasodilatadora.",
-                propiedades: "Aminoácidos, vitamina C, fibra, minerales como potasio y magnesio."
-            },
-            "nispero": {
-                nombre: "Níspero",
-                nombreCientifico: "Eriobotrya japonica",
-                familia: "Rosaceae",
-                partesUtilizadas: "Hojas, fruto",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Comaltepec",
-                usosMedicinales: "Diabetes, actividad hipoglicémica, afecciones renales, cálculos biliares, amigdalitis, diarrea, mejora la digestión, antiinflamatorio, hipotérmica.",
-                propiedades: "Ácido ursólico, flavonoides, taninos, vitamina C, carotenoides."
-            },
-            "nopal": {
-                nombre: "Nopal",
-                nombreCientifico: "Opuntia ficus-indica",
-                familia: "Cactaceae",
-                partesUtilizadas: "Cladodios (pencas), fruto",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan",
-                usosMedicinales: "Diabetes, hiperglucemia, colesterol elevado, protege la mucosa gastrointestinal, obesidad y mala digestión.",
-                propiedades: "Fibra soluble (mucílagos, pectina), vitaminas A, C, K, minerales como calcio, magnesio, potasio."
-            },
-            "cilantro": {
-                nombre: "Cilantro",
-                nombreCientifico: "Coriandrum sativum",
-                familia: "Apiaceae",
-                partesUtilizadas: "Hojas y semillas",
-                ubicacion: "Atacpan, Cuaculico, Tatoxcac, Las lomas, El molino, Nexticapan",
-                usosMedicinales: "Problemas digestivos, gases, cólicos, ansiedad, insomnio, propiedades antibacterianas y antifúngicas.",
-                propiedades: "Aceites esenciales (linalol, geraniol), flavonoides, vitaminas A, C, K."
             }
         };
 
-        // Función para obtener el nombre de imagen correcto según tu repositorio
+        // Función para obtener el nombre de imagen correcto
         function getImagenPlanta(plantId) {
             const imagenes = {
                 'epazote': 'Epazote.png',
@@ -3154,29 +2960,7 @@
                 'lavanda': 'Lavanda.jpg',
                 'manzanilla': 'Manzanilla.png',
                 'sabila': 'Sabila.png',
-                'bugambilia': 'Bugambilia.png',
-                'eucalipto': 'Eucalipto.png',
-                'geranio': 'Geranio.png',
-                'ruda': 'Ruda.png',
-                'toronjil_rojo': 'Toronjil rojo.png',
-                'ajo': 'Ajo.png',
-                'albahaca': 'Albahaca.jpg',
-                'arnica': 'Arnica.png',
-                'cempasuchil': 'Cempasuchil.png',
-                'cola_caballo': 'Cola de Caballo.jpg',
-                'guayaba': 'Guayaba.png',
-                'malva': 'Malva.jpg',
-                'sauco': 'Sauco.png',
-                'zacate_limon': 'Zacate Limon.jpg',
-                'limon': 'Limon.jpg',
-                'avena': 'Avena.png',
-                'laurel': 'Laurel.jpg',
-                'romero': 'Romero.png',
-                'dienteleon': 'Diente de leon.png',
-                'chayote': 'Chayote.png',
-                'nispero': 'Nispero.png',
-                'nopal': 'Nopal.png',
-                'cilantro': 'Cilantro.png'
+                'arnica': 'Arnica.png'
             };
             return imagenes[plantId] || 'Manzanilla.png';
         }
@@ -3189,34 +2973,12 @@
                 'lavanda': 'lavanda.m4a',
                 'manzanilla': 'manzanilla.m4a',
                 'sabila': 'sabila.m4a',
-                'bugambilia': 'bugambilia.m4a',
-                'eucalipto': 'eucalipto.m4a',
-                'geranio': 'geranio.m4a',
-                'ruda': 'ruda.m4a',
-                'toronjil_rojo': 'toronjil rojo.m4a',
-                'ajo': 'ajo.m4a',
-                'albahaca': 'albahaca.m4a',
-                'arnica': 'arnica.m4a',
-                'cempasuchil': 'cempasuchil.m4a',
-                'cola_caballo': 'cola de caballo.m4a',
-                'guayaba': 'guayaba.m4a',
-                'malva': 'malva.m4a',
-                'sauco': 'sauco.m4a',
-                'zacate_limon': 'zacate limon.m4a',
-                'limon': 'limon.m4a',
-                'avena': 'avena.m4a',
-                'laurel': 'laurel.m4a',
-                'romero': 'romero.m4a',
-                'dienteleon': 'diente de leon.m4a',
-                'chayote': 'chayote.m4a',
-                'nispero': 'nispero.m4a',
-                'nopal': 'nopal.m4a',
-                'cilantro': 'cilantro.m4a'
+                'arnica': 'arnica.m4a'
             };
             return audios[plantId] || '';
         }
 
-        // Función para reproducir audio (solo uno a la vez)
+        // Función para reproducir audio (solo uno a la vez) - PARA EL BOTÓN EXISTENTE
         function playAudio(audioId) {
             const audio = document.getElementById(audioId);
             if (currentAudio && currentAudio !== audio) {
@@ -3227,9 +2989,32 @@
             currentAudio = audio;
         }
 
-        // Función para pausar audio
+        // Función para pausar audio - PARA EL BOTÓN EXISTENTE
         function pauseAudio(audioId) {
             const audio = document.getElementById(audioId);
+            audio.pause();
+            if (currentAudio === audio) {
+                currentAudio = null;
+            }
+        }
+
+        // FUNCIONES NUEVAS PARA LOS 4 AUDIOS POR PUNTO
+        function playAudioPoint(audioId) {
+            const audio = document.getElementById(audioId);
+            if (!audio) return;
+            
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            audio.play().catch(e => console.log('Error al reproducir:', e));
+            currentAudio = audio;
+        }
+
+        function pauseAudioPoint(audioId) {
+            const audio = document.getElementById(audioId);
+            if (!audio) return;
+            
             audio.pause();
             if (currentAudio === audio) {
                 currentAudio = null;
@@ -3241,7 +3026,6 @@
             showHomePage();
         });
 
-        // Función para ir a una página y guardar en el historial
         function navigateTo(pageId) {
             if (currentPage !== pageId) {
                 navigationHistory.push(currentPage);
@@ -3252,7 +3036,6 @@
             }
         }
 
-        // Función para volver a la página anterior
         function goBack() {
             if (navigationHistory.length > 0) {
                 const previousPageId = navigationHistory.pop();
@@ -3312,9 +3095,8 @@
             navigateTo(`${condition}-page`);
         }
 
-        // Función para mostrar página de planta
+        // Función para mostrar página de planta (MODIFICADA CON 4 BOTONES DE AUDIO POR PUNTO)
         function showPlantPage(plantId) {
-            // Guardar la página actual antes de cambiar
             if (currentPage !== `${plantId}-page`) {
                 navigationHistory.push(currentPage);
             }
@@ -3338,6 +3120,12 @@
                 const imagen = getImagenPlanta(plantId);
                 const audioFile = getAudioPlanta(plantId);
                 
+                // Nombres de los 4 audios por punto
+                const audioGeneral = `${plantId}_general.m4a`;
+                const audioUsos = `${plantId}_usos.m4a`;
+                const audioPropiedades = `${plantId}_propiedades.m4a`;
+                const audioPrecauciones = `${plantId}_precauciones.m4a`;
+                
                 page.innerHTML = `
                     <div class="plant-detail-header">
                         <div class="container">
@@ -3353,7 +3141,7 @@
                             <div class="plant-detail-left">
                                 <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
                                 
-                                <!-- Reproductor de audio estilo imagen -->
+                                <!-- Reproductor de audio estilo imagen (EXISTENTE, NO SE MODIFICA) -->
                                 <div class="plant-audio-player">
                                     <div class="audio-logo-container">
                                         <div class="audio-logo">
@@ -3377,27 +3165,55 @@
                             </div>
                             
                             <div class="plant-detail-info">
+                                <!-- PUNTO 1: Información General CON SU BOTÓN DE AUDIO -->
                                 <div class="info-section">
+                                    <div class="audio-row">
+                                        <span class="audio-label-point">Audio General</span>
+                                        <button class="audio-play-point" onclick="playAudioPoint('audio-general-${plantId}')">▶</button>
+                                        <button class="audio-pause-point" onclick="pauseAudioPoint('audio-general-${plantId}')">⏸</button>
+                                    </div>
                                     <h3>🌿 Información General</h3>
                                     <p><strong>Nombre científico:</strong> ${planta.nombreCientifico}</p>
                                     <p><strong>Familia:</strong> ${planta.familia}</p>
                                     <p><strong>Partes utilizadas:</strong> ${planta.partesUtilizadas}</p>
                                     <p><strong>Ubicación en Zacapoaxtla:</strong> ${planta.ubicacion || 'Información no disponible'}</p>
+                                    <audio id="audio-general-${plantId}" src="${audioGeneral}" preload="none"></audio>
                                 </div>
                                 
+                                <!-- PUNTO 2: Usos Medicinales CON SU BOTÓN DE AUDIO -->
                                 <div class="info-section">
+                                    <div class="audio-row">
+                                        <span class="audio-label-point">Audio Usos</span>
+                                        <button class="audio-play-point" onclick="playAudioPoint('audio-usos-${plantId}')">▶</button>
+                                        <button class="audio-pause-point" onclick="pauseAudioPoint('audio-usos-${plantId}')">⏸</button>
+                                    </div>
                                     <h3>💊 Usos Medicinales</h3>
                                     <p>${planta.usosMedicinales}</p>
+                                    <audio id="audio-usos-${plantId}" src="${audioUsos}" preload="none"></audio>
                                 </div>
                                 
+                                <!-- PUNTO 3: Propiedades CON SU BOTÓN DE AUDIO -->
                                 <div class="info-section">
+                                    <div class="audio-row">
+                                        <span class="audio-label-point">Audio Propiedades</span>
+                                        <button class="audio-play-point" onclick="playAudioPoint('audio-propiedades-${plantId}')">▶</button>
+                                        <button class="audio-pause-point" onclick="pauseAudioPoint('audio-propiedades-${plantId}')">⏸</button>
+                                    </div>
                                     <h3>🧪 Propiedades</h3>
                                     <p>${planta.propiedades || 'Información no disponible'}</p>
+                                    <audio id="audio-propiedades-${plantId}" src="${audioPropiedades}" preload="none"></audio>
                                 </div>
                                 
+                                <!-- PUNTO 4: Precauciones CON SU BOTÓN DE AUDIO -->
                                 <div class="precaution-card">
+                                    <div class="audio-row">
+                                        <span class="audio-label-point">Audio Precauciones</span>
+                                        <button class="audio-play-point" onclick="playAudioPoint('audio-precauciones-${plantId}')">▶</button>
+                                        <button class="audio-pause-point" onclick="pauseAudioPoint('audio-precauciones-${plantId}')">⏸</button>
+                                    </div>
                                     <h4>⚠️ Precauciones</h4>
                                     <p>Consulta con un especialista antes de usar esta planta medicinal, especialmente si estás embarazada, amamantando, tomando medicamentos o tienes condiciones médicas preexistentes.</p>
+                                    <audio id="audio-precauciones-${plantId}" src="${audioPrecauciones}" preload="none"></audio>
                                 </div>
                             </div>
                         </div>
@@ -3426,6 +3242,8 @@
         window.showPlantPage = showPlantPage;
         window.playAudio = playAudio;
         window.pauseAudio = pauseAudio;
+        window.playAudioPoint = playAudioPoint;
+        window.pauseAudioPoint = pauseAudioPoint;
     </script>
 </body>
 </html>
