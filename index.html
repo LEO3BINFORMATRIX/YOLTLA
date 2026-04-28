@@ -2965,7 +2965,8 @@
             return imagenes[plantId] || 'Manzanilla.png';
         }
 
-        // Función para obtener el nombre del archivo de audio
+        // ---------- AUDIOS MODIFICADOS SEGÚN TU LISTA ----------
+        // Función para obtener el nombre del archivo de audio (para el botón grande de pronunciación)
         function getAudioPlanta(plantId) {
             const audios = {
                 'epazote': 'epazote.m4a',
@@ -2973,7 +2974,29 @@
                 'lavanda': 'lavanda.m4a',
                 'manzanilla': 'manzanilla.m4a',
                 'sabila': 'sabila.m4a',
-                'arnica': 'arnica.m4a'
+                'arnica': 'arnica.m4a',
+                'bugambilia': 'bugambilia.m4a',
+                'eucalipto': 'eucalipto.m4a',
+                'geranio': 'geranio.m4a',
+                'ruda': 'ruda.m4a',
+                'toronjil_rojo': 'toronjil.m4a',
+                'ajo': 'ajo.m4a',
+                'albahaca': 'albahaca.m4a',
+                'cempasuchil': 'cempasuchil.m4a',
+                'cola_caballo': 'cola.m4a',
+                'guayaba': 'guayaba.m4a',
+                'malva': 'malva.m4a',
+                'sauco': 'sauco.m4a',
+                'zacate_limon': 'zacate.m4a',
+                'limon': 'limon.m4a',
+                'avena': 'avena.m4a',
+                'laurel': 'laurel.m4a',
+                'romero': 'romero.m4a',
+                'dienteleon': 'diente.m4a',
+                'chayote': 'chayote.m4a',
+                'nispero': 'nispero.m4a',
+                'nopal': 'nopal.m4a',
+                'cilantro': 'cilantro.m4a'
             };
             return audios[plantId] || '';
         }
@@ -3095,7 +3118,7 @@
             navigateTo(`${condition}-page`);
         }
 
-        // Función para mostrar página de planta (MODIFICADA CON 4 BOTONES DE AUDIO POR PUNTO)
+        // Función para mostrar página de planta (CON LOS NOMBRES DE AUDIOS ACTUALIZADOS SEGÚN TU LISTA)
         function showPlantPage(plantId) {
             if (currentPage !== `${plantId}-page`) {
                 navigationHistory.push(currentPage);
@@ -3120,11 +3143,178 @@
                 const imagen = getImagenPlanta(plantId);
                 const audioFile = getAudioPlanta(plantId);
                 
-                // Nombres de los 4 audios por punto
-                const audioGeneral = `${plantId}_general.m4a`;
-                const audioUsos = `${plantId}_usos.m4a`;
-                const audioPropiedades = `${plantId}_propiedades.m4a`;
-                const audioPrecauciones = `${plantId}_precauciones.m4a`;
+                // Nombres de los 4 audios por punto SEGÚN TU LISTA
+                let audioGeneral, audioUsos, audioPropiedades, audioPrecauciones;
+                
+                switch(plantId) {
+                    case 'ajo':
+                        audioGeneral = 'ajo_info.m4a';
+                        audioUsos = 'ajo_usos.m4a';
+                        audioPropiedades = 'ajo_propi.m4a';
+                        audioPrecauciones = 'ajo_preca.m4a';
+                        break;
+                    case 'albahaca':
+                        audioGeneral = 'albahaca_info.m4a';
+                        audioUsos = 'albahaca_usos.m4a';
+                        audioPropiedades = 'albahaca_propi.m4a';
+                        audioPrecauciones = 'albahaca_preca.m4a';
+                        break;
+                    case 'arnica':
+                        audioGeneral = 'arnica_info.m4a';
+                        audioUsos = 'arnica_usos.m4a';
+                        audioPropiedades = 'arnica_propi.m4a';
+                        audioPrecauciones = 'arnica_preca.m4a';
+                        break;
+                    case 'avena':
+                        audioGeneral = 'avena_info.m4a';
+                        audioUsos = 'avena_usos.m4a';
+                        audioPropiedades = 'avena_propi.m4a';
+                        audioPrecauciones = 'avena_preca.m4a';
+                        break;
+                    case 'bugambilia':
+                        audioGeneral = 'bugambilia_info.m4a';
+                        audioUsos = 'bugambilia_usos.m4a';
+                        audioPropiedades = 'bugambilia_propi.m4a';
+                        audioPrecauciones = 'bugambilia_preca.m4a';
+                        break;
+                    case 'cempasuchil':
+                        audioGeneral = 'cempasuchil_info.m4a';
+                        audioUsos = 'cempasuchil_usos.m4a';
+                        audioPropiedades = 'cempasuchil_propi.m4a';
+                        audioPrecauciones = 'cempasuchil_preca.m4a';
+                        break;
+                    case 'chayote':
+                        audioGeneral = 'chayote_info.m4a';
+                        audioUsos = 'chayote_usos.m4a';
+                        audioPropiedades = 'chayote_propi.m4a';
+                        audioPrecauciones = 'chayote_preca.m4a';
+                        break;
+                    case 'cola_caballo':
+                        audioGeneral = 'cola_info.m4a';
+                        audioUsos = 'cola_usos.m4a';
+                        audioPropiedades = 'cola_propi.m4a';
+                        audioPrecauciones = 'cola_preca.m4a';
+                        break;
+                    case 'dienteleon':
+                        audioGeneral = 'diente_info.m4a';
+                        audioUsos = 'diente_usos.m4a';
+                        audioPropiedades = 'diente_propi.m4a';
+                        audioPrecauciones = 'diente_preca.m4a';
+                        break;
+                    case 'epazote':
+                        audioGeneral = 'epazote_info.m4a';
+                        audioUsos = 'epazote_usos.m4a';
+                        audioPropiedades = 'epazote_propi.m4a';
+                        audioPrecauciones = 'epazote_preca.m4a';
+                        break;
+                    case 'eucalipto':
+                        audioGeneral = 'eucalipto_info.m4a';
+                        audioUsos = 'eucalipto_usos.m4a';
+                        audioPropiedades = 'eucalipto_propi.m4a';
+                        audioPrecauciones = 'eucalipto_preca.m4a';
+                        break;
+                    case 'geranio':
+                        audioGeneral = 'geranio_info.m4a';
+                        audioUsos = 'geranio_usos.m4a';
+                        audioPropiedades = 'geranio_propi.m4a';
+                        audioPrecauciones = 'geranio_preca.m4a';
+                        break;
+                    case 'guayaba':
+                        audioGeneral = 'guayaba_info.m4a';
+                        audioUsos = 'guayaba_usos.m4a';
+                        audioPropiedades = 'guayaba_propi.m4a';
+                        audioPrecauciones = 'guayaba_preca.m4a';
+                        break;
+                    case 'hierbabuena':
+                        audioGeneral = 'hierbabuena_info.m4a';
+                        audioUsos = 'hierbabuena_usos.m4a';
+                        audioPropiedades = 'hierbabuena_propi.m4a';
+                        audioPrecauciones = 'hierbabuena_preca.m4a';
+                        break;
+                    case 'laurel':
+                        audioGeneral = 'laurel_info.m4a';
+                        audioUsos = 'laurel_usos.m4a';
+                        audioPropiedades = 'laurel_propi.m4a';
+                        audioPrecauciones = 'laurel_preca.m4a';
+                        break;
+                    case 'lavanda':
+                        audioGeneral = 'lavanda_info.m4a';
+                        audioUsos = 'lavanda_usos.m4a';
+                        audioPropiedades = 'lavanda_propi.m4a';
+                        audioPrecauciones = 'lavanda_preca.m4a';
+                        break;
+                    case 'limon':
+                        audioGeneral = 'limon_info.m4a';
+                        audioUsos = 'limon_usos.m4a';
+                        audioPropiedades = 'limon_propi.m4a';
+                        audioPrecauciones = 'limon_preca.m4a';
+                        break;
+                    case 'malva':
+                        audioGeneral = 'malva_info.m4a';
+                        audioUsos = 'malva_usos.m4a';
+                        audioPropiedades = 'malva_propi.m4a';
+                        audioPrecauciones = 'malva_preca.m4a';
+                        break;
+                    case 'manzanilla':
+                        audioGeneral = 'manzanilla_info.m4a';
+                        audioUsos = 'manzanilla_usos.m4a';
+                        audioPropiedades = 'manzanilla_propi.m4a';
+                        audioPrecauciones = 'manzanilla_preca.m4a';
+                        break;
+                    case 'nispero':
+                        audioGeneral = 'nispero_info.m4a';
+                        audioUsos = 'nispero_usos.m4a';
+                        audioPropiedades = 'nispero_propi.m4a';
+                        audioPrecauciones = 'nispero_preca.m4a';
+                        break;
+                    case 'nopal':
+                        audioGeneral = 'nopal_info.m4a';
+                        audioUsos = 'nopal_usos.m4a';
+                        audioPropiedades = 'nopal_propi.m4a';
+                        audioPrecauciones = 'nopal_preca.m4a';
+                        break;
+                    case 'romero':
+                        audioGeneral = 'romero_info.m4a';
+                        audioUsos = 'romero_usos.m4a';
+                        audioPropiedades = 'romero_propi.m4a';
+                        audioPrecauciones = 'romero_preca.m4a';
+                        break;
+                    case 'ruda':
+                        audioGeneral = 'ruda_info.m4a';
+                        audioUsos = 'ruda_usos.m4a';
+                        audioPropiedades = 'ruda_propi.m4a';
+                        audioPrecauciones = 'ruda_preca.m4a';
+                        break;
+                    case 'sabila':
+                        audioGeneral = 'sabila_info.m4a';
+                        audioUsos = 'sabila_usos.m4a';
+                        audioPropiedades = 'sabila_propi.m4a';
+                        audioPrecauciones = 'sabila_preca.m4a';
+                        break;
+                    case 'sauco':
+                        audioGeneral = 'sauco_info.m4a';
+                        audioUsos = 'sauco_usos.m4a';
+                        audioPropiedades = 'sauco_propi.m4a';
+                        audioPrecauciones = 'sauco_preca.m4a';
+                        break;
+                    case 'toronjil_rojo':
+                        audioGeneral = 'toronjil_info.m4a';
+                        audioUsos = 'toronjil_usos.m4a';
+                        audioPropiedades = 'toronjil_propi.m4a';
+                        audioPrecauciones = 'toronjil_preca.m4a';
+                        break;
+                    case 'zacate_limon':
+                        audioGeneral = 'zacate_info.m4a';
+                        audioUsos = 'zacate_usos.m4a';
+                        audioPropiedades = 'zacate_propi.m4a';
+                        audioPrecauciones = 'zacate_preca.m4a';
+                        break;
+                    default:
+                        audioGeneral = `${plantId}_info.m4a`;
+                        audioUsos = `${plantId}_usos.m4a`;
+                        audioPropiedades = `${plantId}_propi.m4a`;
+                        audioPrecauciones = `${plantId}_preca.m4a`;
+                }
                 
                 page.innerHTML = `
                     <div class="plant-detail-header">
