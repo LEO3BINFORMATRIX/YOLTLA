@@ -3126,20 +3126,39 @@
             return imagenes[plantId] || 'Manzanilla.png';
         }
 
-        function getAudioPlanta(plantId) {
-            const audios = {
-                'epazote': 'epazote.m4a', 'hierbabuena': 'hierbabuena.m4a', 'lavanda': 'lavanda.m4a',
-                'manzanilla': 'manzanilla.m4a', 'sabila': 'sabila.m4a', 'arnica': 'arnica.m4a',
-                'bugambilia': 'bugambilia.m4a', 'eucalipto': 'eucalipto.m4a', 'geranio': 'geranio.m4a',
-                'ruda': 'ruda.m4a', 'toronjil_rojo': 'toronjil.m4a', 'ajo': 'ajo.m4a',
-                'albahaca': 'albahaca.m4a', 'cempasuchil': 'cempasuchil.m4a', 'cola_caballo': 'cola.m4a',
-                'guayaba': 'guayaba.m4a', 'malva': 'malva.m4a', 'sauco': 'sauco.m4a',
-                'zacate_limon': 'zacate.m4a', 'limon': 'limon.m4a', 'avena': 'avena.m4a',
-                'laurel': 'laurel.m4a', 'romero': 'romero.m4a', 'dienteleon': 'diente.m4a',
-                'chayote': 'chayote.m4a', 'nispero': 'nispero.m4a', 'nopal': 'nopal.m4a'
-            };
-            return audios[plantId] || '';
-        }
+    function getAudioPlanta(plantId) {
+    const audios = {
+        'ajo': 'ajo.mp3',
+        'albahaca': 'albahaca.mp3',
+        'arnica': 'arnica.mp3',
+        'avena': 'avena.mp3',
+        'bugambilia': 'bugambilia.mp3',
+        'cempasuchil': 'cempasuchil.mp3',
+        'cilantro': 'cilantro.mp3',
+        'chayote': 'chayote.mp3',
+        'cola_caballo': 'coladecaballo.mp3',
+        'dienteleon': 'dientedeleon.mp3',
+        'epazote': 'epazote.mp3',
+        'eucalipto': 'eucalipto.mp3',
+        'geranio': 'geranio.mp3',
+        'guayaba': 'guayaba.mp3',
+        'hierbabuena': 'hierbabuena.mp3',
+        'laurel': 'laurel.mp3',
+        'lavanda': 'lavanda.mp3',
+        'limon': 'limon.mp3',
+        'malva': 'malva.mp3',
+        'manzanilla': 'manzanilla.mp3',
+        'nispero': 'nispero.mp3',
+        'nopal': 'nopal.mp3',
+        'romero': 'romero.mp3',
+        'ruda': 'ruda.mp3',
+        'sabila': 'sabila.mp3',
+        'sauco': 'sauco.mp3',
+        'toronjil_rojo': 'toronjilrojo.mp3',   // clave con _, archivo sin _
+        'zacate_limon': 'zacatelimon.mp3'       // clave con _, archivo sin _
+    };
+    return audios[plantId] || '';
+}
 
         function getAudioGeneral(plantId) { return `${plantId}_info.m4a`; }
         function getAudioUsos(plantId) { return `${plantId}_usos.m4a`; }
@@ -3254,7 +3273,7 @@
                                 <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
                                 <div class="plant-audio-player">
                                     <div class="audio-logo-container"><div class="audio-logo"><img src="audio.png" alt="Audio" class="audio-icon" onerror="this.style.display='none'"></div></div>
-                                    <div class="audio-info"><span class="audio-title">ESCUCHA LA PRONUNCIACIÓN</span><span class="audio-name">${planta.nombre}</span></div>
+                                    <div class="audio-info"><span class="audio-title">PRONUNCIACIÓN EN NAHUATL</span><span class="audio-name">${planta.nombre}</span></div>
                                     <div class="audio-controls"><button class="audio-play-btn" onclick="playAudio('audio-${plantId}')">▶</button><button class="audio-pause-btn" onclick="pauseAudio('audio-${plantId}')">⏸️</button></div>
                                     <audio id="audio-${plantId}" src="${audioFile}" preload="none"></audio>
                                 </div>
