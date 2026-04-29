@@ -272,6 +272,154 @@
             transform: scale(1.1);
         }
         
+        /* ESTILOS DE LA GALERÍA - NUEVO */
+        .plant-gallery {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(45, 90, 45, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d5a2d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f5e8;
+        }
+        
+        .gallery-container {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: thin;
+            scrollbar-color: #2d5a2d #e8f5e8;
+        }
+        
+        .gallery-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .gallery-container::-webkit-scrollbar-track {
+            background: #e8f5e8;
+            border-radius: 10px;
+        }
+        
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #2d5a2d;
+            border-radius: 10px;
+        }
+        
+        .gallery-thumb {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .gallery-thumb:hover {
+            transform: scale(1.05);
+            border-color: #2d5a2d;
+            box-shadow: 0 5px 15px rgba(45, 90, 45, 0.2);
+        }
+        
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Modal para galería */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .gallery-modal.active {
+            display: flex;
+        }
+        
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: #a8d5a8;
+        }
+        
+        .modal-prev, .modal-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        
+        .modal-prev:hover, .modal-next:hover {
+            background: #2d5a2d;
+        }
+        
+        .modal-prev {
+            left: 20px;
+        }
+        
+        .modal-next {
+            right: 20px;
+        }
+        
+        .gallery-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
         /* Sección de condiciones */
         .conditions {
             margin-bottom: 50px;
@@ -1825,6 +1973,16 @@
             .map-stats {
                 grid-template-columns: 1fr;
             }
+            
+            .gallery-thumb {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .modal-prev, .modal-next {
+                padding: 10px 15px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -2890,6 +3048,37 @@
         let navigationHistory = ['home-page'];
         let currentPage = 'home-page';
         let currentAudio = null;
+        let currentGalleryImages = [];
+        let currentGalleryIndex = 0;
+
+        // ===== LISTA DE IMÁGENES PARA LA GALERÍA DE CADA PLANTA =====
+        const galeriaImagenes = {
+            'ajo': ['ajo_1.png', 'ajo_2.png', 'ajo_3.png', 'ajo_5.png', 'ajo_4.png'],
+            'albahaca': ['albahaca_1.png', 'albahaca_2.png', 'albahaca_6.png', 'albahaca_3.png', 'albahaca_4.png', 'albahaca_5.png'],
+            'arnica': ['arnica_1.png', 'arnica_2.png', 'arnica_3.png', 'arnica_4.png'],
+            'avena': ['avena_1.png', 'avena_2.png', 'avena_3.png', 'avena_4.png'],
+            'bugambilia': ['Bugambilia_1.jpg', 'Bugambilia_2.jpg', 'Bugambilia_3.jpg', 'Bugambilia_4.jpg', 'Bugambilia_5.jpg', 'Bugambilia_6.jpg', 'Bugambilia_7.jpg', 'Bugambilia_8.jpg'],
+            'cempasuchil': ['cempasuchil_1.png', 'cempasuchil_2.jpg', 'cempasuchil_3.jpg', 'cempasuchil_4.jpg'],
+            'chayote': ['chayote_1.png', 'chayote_2.png', 'chayote_3.png', 'chayote_4.png', 'chayote_5.png'],
+            'cola_caballo': ['Coladecaballo_1.jpg', 'Coladecaballo_2.jpg', 'Coladecaballo_3.jpg', 'Coladecaballo_6.jpg', 'Coladecaballo_4.jpg', 'Coladecaballo_5.jpg'],
+            'dienteleon': ['dientedeleon_1.png', 'dientedeleon_2.png', 'dientedeleon_3.png', 'dientedeleon_4.png', 'dientedeleon_5.png'],
+            'eucalipto': ['eucalipto_1.jpg', 'eucalipto_2.jpg', 'eucalipto_3.png', 'eucalipto_4.png', 'eucalipto_5.png'],
+            'geranio': ['Geranio_1.jpg', 'Geranio_2.jpg', 'Geranio_3.jpg', 'Geranio_6.jpg', 'Geranio_7.jpg', 'Geranio_4.jpg', 'Geranio_5.jpg'],
+            'guayaba': ['guayaba_1.jpg', 'guayaba_2.jpg', 'guayaba_3.jpg', 'guayaba_4.jpg', 'guayaba_5.jpg', 'guayaba_6.jpg'],
+            'hierbabuena': ['hierbabuena_1.jpg', 'hierbabuena_2.jpg', 'hierbabuena_3.jpg', 'hierbabuena_4.jpg', 'hierbabuena_5.jpg'],
+            'laurel': ['laurel_1.png', 'laurel_2.png', 'laurel_3.png', 'laurel_4.png', 'laurel_5.png'],
+            'lavanda': ['lavanda_1.jpg', 'lavanda_2.jpg', 'lavanda_3.png', 'lavanda_4.jpg', 'lavanda_5.jpg'],
+            'limon': ['Limon_1.jpg', 'Limon_2.jpg', 'Limon_3.jpg', 'Limon_6.jpg', 'Limon_4.jpg', 'Limon_5.jpg'],
+            'manzanilla': ['Manzanilla_1.jpg', 'Manzanilla_2.jpg', 'Manzanilla_3.jpg', 'Manzanilla_4.jpg', 'Manzanilla_5.jpg'],
+            'nispero': ['Nispero_1.jpg', 'Nispero_2.jpg', 'Nispero_3.jpg', 'Nispero_4.jpg', 'Nispero_5.jpg'],
+            'nopal': ['Nopal_1.jpg', 'Nopal_2.jpg', 'Nopal_6.jpg', 'Nopal_7.jpg', 'Nopal_3.jpg', 'Nopal_4.jpg', 'Nopal_5.jpg'],
+            'romero': ['romero_1.png', 'romero_2.png', 'romero_3.png', 'romero_4.png', 'romero_5.png'],
+            'ruda': ['Ruda_1.jpg', 'Ruda_2.jpg', 'Ruda_3.jpg', 'Ruda_4.jpg', 'Ruda_5.jpg', 'Ruda_6.jpg'],
+            'sabila': ['sabila_1.jpg', 'sabila_2.png', 'sabila_3.png', 'sabila_4.png', 'sabila_5.png'],
+            'sauco': ['Sauco_1.jpg', 'Sauco_2.jpg', 'Sauco_3.jpg', 'Sauco_4.jpg', 'Sauco_5.jpg', 'Sauco_6.jpg', 'Sauco_7.jpg', 'Sauco_8.jpg'],
+            'toronjil_rojo': ['toronjil_1.png', 'toronjil_2.png', 'toronjil_3.jpg', 'toronjil_4.jpg', 'toronjil_5.jpg'],
+            'zacate_limon': ['zacate_1.png', 'zacate_2.png', 'zacate_3.png', 'zacate_4.png', 'zacate_5.png']
+        };
 
         // ==================== BASE DE DATOS COMPLETA DE TODAS LAS PLANTAS ====================
         const plantasData = {
@@ -2919,8 +3108,7 @@
             "sabila": { nombre: "Sábila", nombreCientifico: "Aloe vera", familia: "Xanthorrhoeaceae", partesUtilizadas: "Pulpa de la Penca, hoja fresca", ubicacion: "Atacpan, Cuiculico, Tatoxcac, Las lomas, El molino, Nexticapan, Xilita, El progreso, Ahuacatlan, Insurgentes, Calcahualco, Colos, Yanhuicapan, Comaltepec, Gonzalo Bautista, Mazapa, San Juan Tahitic", usosMedicinales: "Cura llagas y heridas, inflamaciones del intestino grueso, hemorroides, dolores de cabeza ocasionados por trastornos uterinos o gástricos, infecciones por cándida, sarpullido, arrugas, acné y como bloqueador solar.", propiedades: "Ácidos glutámico, aloético, palmítico, aspártico; aceites esenciales de cineol, cariofileno y pineno; minerales como calcio, magnesio, potasio, zinc, fósforo, manganeso, y aluminio; aminoácidos como aloína, aloesína, lisina, arginina, glutamina; vitaminas B1, B2, B6, C." },
             "sauco": { nombre: "Saúco", nombreCientifico: "Sambucus nigra", familia: "Adoxaceae", partesUtilizadas: "Flores, corteza, hojas", ubicacion: "Zacapoaxtla", usosMedicinales: "Gripe, resfriado común, fiebre, gota, reumatismo, estreñimiento, cistitis, litiasis renal, estimular producción de leche materna, caries, hemorroides, dolores musculares, calambres.", propiedades: "Flavonoides (rutina, quercetina), antocianinas, taninos, mucílagos, vitamina C, ácidos fenólicos." },
             "toronjil_rojo": { nombre: "Toronjil Rojo", nombreCientifico: "Agastache mexicana", familia: "Lamiaceae", partesUtilizadas: "Hojas, sumidades floridas", ubicacion: "Zacapoaxtla", usosMedicinales: "Problemas gástricos, digestiva, diarrea infantil, nerviosismo, alteraciones cardiovasculares.", propiedades: "Aceite esencial (limoneno, pulegona), taninos, flavonoides, compuestos fenólicos." },
-            "zacate_limon": { nombre: "Zacate Limón", nombreCientifico: "Cymbopogon citratus", familia: "Poaceae", partesUtilizadas: "Hojas", ubicacion: "Zacapoaxtla", usosMedicinales: "Dolor estomacal, vómito, facilita la digestión, diarrea, desinflama el estómago, tos, gripe, dolor de cabeza, fiebre, nervios, hemorragias vaginales, ansiedad, insomnio.", propiedades: "Aceite esencial (citral, geraniol, limoneno), flavonoides, taninos, ácidos fenólicos, sales minerales." },
-            "cilantro": { nombre: "Cilantro", nombreCientifico: "Coriandrum sativum", familia: "Apiaceae", partesUtilizadas: "Hojas, semillas", ubicacion: "Zacapoaxtla", usosMedicinales: "Problemas digestivos, gases intestinales, espasmos estomacales, ansiedad, insomnio, propiedades antibacterianas, antioxidantes.", propiedades: "Aceite esencial (linalol), vitaminas A, C, K, calcio, potasio, flavonoides." }
+            "zacate_limon": { nombre: "Zacate Limón", nombreCientifico: "Cymbopogon citratus", familia: "Poaceae", partesUtilizadas: "Hojas", ubicacion: "Zacapoaxtla", usosMedicinales: "Dolor estomacal, vómito, facilita la digestión, diarrea, desinflama el estómago, tos, gripe, dolor de cabeza, fiebre, nervios, hemorragias vaginales, ansiedad, insomnio.", propiedades: "Aceite esencial (citral, geraniol, limoneno), flavonoides, taninos, ácidos fenólicos, sales minerales." }
         };
 
         function getImagenPlanta(plantId) {
@@ -2932,8 +3120,7 @@
                 'dienteleon': 'Diente de leon.png', 'eucalipto': 'Eucalipto.png', 'geranio': 'Geranio.png',
                 'guayaba': 'Guayaba.png', 'laurel': 'Laurel.jpg', 'limon': 'Limon.jpg', 'malva': 'Malva.jpg',
                 'nispero': 'Nispero.png', 'nopal': 'Nopal.png', 'romero': 'Romero.png', 'ruda': 'Ruda.png',
-                'sauco': 'Sauco.png', 'toronjil_rojo': 'Toronjil rojo.png', 'zacate_limon': 'Zacate Limon.jpg',
-                'cilantro': 'Cilantro.jpg'
+                'sauco': 'Sauco.png', 'toronjil_rojo': 'Toronjil rojo.png', 'zacate_limon': 'Zacate Limon.jpg'
             };
             return imagenes[plantId] || 'Manzanilla.png';
         }
@@ -2948,8 +3135,7 @@
                 'guayaba': 'guayaba.m4a', 'malva': 'malva.m4a', 'sauco': 'sauco.m4a',
                 'zacate_limon': 'zacate.m4a', 'limon': 'limon.m4a', 'avena': 'avena.m4a',
                 'laurel': 'laurel.m4a', 'romero': 'romero.m4a', 'dienteleon': 'diente.m4a',
-                'chayote': 'chayote.m4a', 'nispero': 'nispero.m4a', 'nopal': 'nopal.m4a',
-                'cilantro': 'cilantro.m4a'
+                'chayote': 'chayote.m4a', 'nispero': 'nispero.m4a', 'nopal': 'nopal.m4a'
             };
             return audios[plantId] || '';
         }
@@ -2958,6 +3144,56 @@
         function getAudioUsos(plantId) { return `${plantId}_usos.m4a`; }
         function getAudioPropiedades(plantId) { return `${plantId}_propi.m4a`; }
         function getAudioPrecauciones(plantId) { return `${plantId}_preca.m4a`; }
+
+        // ===== FUNCIÓN PARA CARGAR LA GALERÍA =====
+        function cargarGaleria(plantId) {
+            const galleryContainer = document.getElementById(`gallery-${plantId}`);
+            if (!galleryContainer) return;
+            
+            const imagenes = galeriaImagenes[plantId] || [];
+            if (imagenes.length === 0) {
+                galleryContainer.innerHTML = '<p style="color:#999; font-size:0.9rem;">No hay imágenes adicionales disponibles</p>';
+                return;
+            }
+            
+            galleryContainer.innerHTML = '';
+            imagenes.forEach((img, idx) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'gallery-thumb';
+                thumb.innerHTML = `<img src="${img}" alt="Imagen ${idx+1}" onerror="this.src='Manzanilla.png'">`;
+                thumb.onclick = () => abrirModal(plantId, idx);
+                galleryContainer.appendChild(thumb);
+            });
+            
+            currentGalleryImages = imagenes;
+        }
+        
+        function abrirModal(plantId, index) {
+            const imagenes = galeriaImagenes[plantId] || [];
+            if (imagenes.length === 0) return;
+            
+            currentGalleryImages = imagenes;
+            currentGalleryIndex = index;
+            
+            const modal = document.getElementById(`modal-${plantId}`);
+            const modalImg = document.getElementById(`modal-img-${plantId}`);
+            if (modal && modalImg) {
+                modalImg.src = imagenes[index];
+                modal.classList.add('active');
+            }
+        }
+        
+        function cerrarModal(plantId) {
+            const modal = document.getElementById(`modal-${plantId}`);
+            if (modal) modal.classList.remove('active');
+        }
+        
+        function cambiarImagen(direccion, plantId) {
+            if (currentGalleryImages.length === 0) return;
+            currentGalleryIndex = (currentGalleryIndex + direccion + currentGalleryImages.length) % currentGalleryImages.length;
+            const modalImg = document.getElementById(`modal-img-${plantId}`);
+            if (modalImg) modalImg.src = currentGalleryImages[currentGalleryIndex];
+        }
 
         function playAudioPoint(audioId) {
             const audio = document.getElementById(audioId);
@@ -2985,7 +3221,10 @@
         function showConditionPage(condition) { navigateTo(`${condition}-page`); }
         function goBack() { if (navigationHistory.length > 0) { const previousPageId = navigationHistory.pop(); currentPage = previousPageId; hideAllPages(); const page = document.getElementById(previousPageId); if (page) page.style.display = 'block'; } else { showHomePage(); } }
         function navigateTo(pageId) { if (currentPage !== pageId) { navigationHistory.push(currentPage); currentPage = pageId; hideAllPages(); const page = document.getElementById(pageId); if (page) page.style.display = 'block'; } }
-        function hideAllPages() { ['home-page', 'location-page', 'map-page', 'contact-page', 'about-page', 'stress-page', 'digestion-page', 'fever-page', 'pain-page'].forEach(page => { const element = document.getElementById(page); if (element) element.style.display = 'none'; }); document.querySelectorAll('.plant-detail-page').forEach(page => page.style.display = 'none'); }
+        function hideAllPages() { 
+            ['home-page', 'location-page', 'map-page', 'contact-page', 'about-page', 'stress-page', 'digestion-page', 'fever-page', 'pain-page'].forEach(page => { const element = document.getElementById(page); if (element) element.style.display = 'none'; }); 
+            document.querySelectorAll('.plant-detail-page').forEach(page => page.style.display = 'none'); 
+        }
 
         function showPlantPage(plantId) {
             const planta = plantasData[plantId];
@@ -3008,12 +3247,69 @@
                 
                 page.innerHTML = `
                     <div class="plant-detail-header"><div class="container"><h1>${planta.nombre}</h1><p>${planta.nombreCientifico} - Planta medicinal de Zacapoaxtla</p><button class="back-btn" onclick="window.showHomePage()">Volver al Inicio</button><button class="return-btn" onclick="window.goBack()">Regresar</button></div></div>
-                    <div class="container"><div class="plant-detail-content"><div class="plant-detail-left"><div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div><div class="plant-audio-player"><div class="audio-logo-container"><div class="audio-logo"><img src="audio.png" alt="Audio" class="audio-icon"></div></div><div class="audio-info"><span class="audio-title">ESCUCHA LA PRONUNCIACIÓN</span><span class="audio-name">${planta.nombre}</span></div><div class="audio-controls"><button class="audio-play-btn" onclick="playAudio('audio-${plantId}')"><span class="play-icon">▶</span></button><button class="audio-pause-btn" onclick="pauseAudio('audio-${plantId}')"><span class="pause-icon">⏸️</span></button></div><audio id="audio-${plantId}" src="${audioFile}" preload="none"></audio></div></div><div class="plant-detail-info"><div class="info-section"><div class="audio-row"><span class="audio-label-point">Audio General</span><button class="audio-play-point" onclick="playAudioPoint('audio-general-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-general-${plantId}')">⏸</button></div><h3>🌿 Información General</h3><p><strong>Nombre científico:</strong> ${planta.nombreCientifico}</p><p><strong>Familia:</strong> ${planta.familia}</p><p><strong>Partes utilizadas:</strong> ${planta.partesUtilizadas}</p><p><strong>Ubicación en Zacapoaxtla:</strong> ${planta.ubicacion || 'Información no disponible'}</p><audio id="audio-general-${plantId}" src="${audioGeneral}" preload="none"></audio></div><div class="info-section"><div class="audio-row"><span class="audio-label-point">Audio Usos</span><button class="audio-play-point" onclick="playAudioPoint('audio-usos-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-usos-${plantId}')">⏸</button></div><h3>💊 Usos Medicinales</h3><p>${planta.usosMedicinales}</p><audio id="audio-usos-${plantId}" src="${audioUsos}" preload="none"></audio></div><div class="info-section"><div class="audio-row"><span class="audio-label-point">Audio Propiedades</span><button class="audio-play-point" onclick="playAudioPoint('audio-propiedades-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-propiedades-${plantId}')">⏸</button></div><h3>🧪 Propiedades</h3><p>${planta.propiedades || 'Información no disponible'}</p><audio id="audio-propiedades-${plantId}" src="${audioPropiedades}" preload="none"></audio></div><div class="precaution-card"><div class="audio-row"><span class="audio-label-point">Audio Precauciones</span><button class="audio-play-point" onclick="playAudioPoint('audio-precauciones-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-precauciones-${plantId}')">⏸</button></div><h4>⚠️ Precauciones</h4><p>Consulta con un especialista antes de usar esta planta medicinal, especialmente si estás embarazada, amamantando, tomando medicamentos o tienes condiciones médicas preexistentes.</p><audio id="audio-precauciones-${plantId}" src="${audioPrecauciones}" preload="none"></audio></div></div></div><div class="plant-detail-footer"><p><strong>Conocimiento tradicional de Zacapoaxtla:</strong> Esta planta forma parte del patrimonio herbal de nuestra región y ha sido utilizada por generaciones para el bienestar de la comunidad.</p></div></div>
+                    <div class="container">
+                        <div class="plant-detail-content">
+                            <div class="plant-detail-left">
+                                <div class="plant-detail-image" style="background-image: url('${imagen}'); background-color: #e8f5e8;"></div>
+                                <div class="plant-audio-player">
+                                    <div class="audio-logo-container"><div class="audio-logo"><img src="audio.png" alt="Audio" class="audio-icon" onerror="this.style.display='none'"></div></div>
+                                    <div class="audio-info"><span class="audio-title">ESCUCHA LA PRONUNCIACIÓN</span><span class="audio-name">${planta.nombre}</span></div>
+                                    <div class="audio-controls"><button class="audio-play-btn" onclick="playAudio('audio-${plantId}')">▶</button><button class="audio-pause-btn" onclick="pauseAudio('audio-${plantId}')">⏸️</button></div>
+                                    <audio id="audio-${plantId}" src="${audioFile}" preload="none"></audio>
+                                </div>
+                                <!-- GALERÍA DE IMÁGENES -->
+                                <div class="plant-gallery">
+                                    <div class="gallery-title">📸 Galería de imágenes</div>
+                                    <div class="gallery-container" id="gallery-${plantId}"></div>
+                                </div>
+                            </div>
+                            <div class="plant-detail-info">
+                                <div class="info-section">
+                                    <div class="audio-row"><span class="audio-label-point">Audio General</span><button class="audio-play-point" onclick="playAudioPoint('audio-general-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-general-${plantId}')">⏸</button></div>
+                                    <h3>🌿 Información General</h3>
+                                    <p><strong>Nombre científico:</strong> ${planta.nombreCientifico}</p>
+                                    <p><strong>Familia:</strong> ${planta.familia}</p>
+                                    <p><strong>Partes utilizadas:</strong> ${planta.partesUtilizadas}</p>
+                                    <p><strong>Ubicación en Zacapoaxtla:</strong> ${planta.ubicacion || 'Información no disponible'}</p>
+                                    <audio id="audio-general-${plantId}" src="${audioGeneral}" preload="none"></audio>
+                                </div>
+                                <div class="info-section">
+                                    <div class="audio-row"><span class="audio-label-point">Audio Usos</span><button class="audio-play-point" onclick="playAudioPoint('audio-usos-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-usos-${plantId}')">⏸</button></div>
+                                    <h3>💊 Usos Medicinales</h3>
+                                    <p>${planta.usosMedicinales}</p>
+                                    <audio id="audio-usos-${plantId}" src="${audioUsos}" preload="none"></audio>
+                                </div>
+                                <div class="info-section">
+                                    <div class="audio-row"><span class="audio-label-point">Audio Propiedades</span><button class="audio-play-point" onclick="playAudioPoint('audio-propiedades-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-propiedades-${plantId}')">⏸</button></div>
+                                    <h3>🧪 Propiedades</h3>
+                                    <p>${planta.propiedades || 'Información no disponible'}</p>
+                                    <audio id="audio-propiedades-${plantId}" src="${audioPropiedades}" preload="none"></audio>
+                                </div>
+                                <div class="precaution-card">
+                                    <div class="audio-row"><span class="audio-label-point">Audio Precauciones</span><button class="audio-play-point" onclick="playAudioPoint('audio-precauciones-${plantId}')">▶</button><button class="audio-pause-point" onclick="pauseAudioPoint('audio-precauciones-${plantId}')">⏸</button></div>
+                                    <h4>⚠️ Precauciones</h4>
+                                    <p>Consulta con un especialista antes de usar esta planta medicinal, especialmente si estás embarazada, amamantando, tomando medicamentos o tienes condiciones médicas preexistentes.</p>
+                                    <audio id="audio-precauciones-${plantId}" src="${audioPrecauciones}" preload="none"></audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plant-detail-footer"><p><strong>Conocimiento tradicional de Zacapoaxtla:</strong> Esta planta forma parte del patrimonio herbal de nuestra región y ha sido utilizada por generaciones para el bienestar de la comunidad.</p></div>
+                    </div>
+                    <!-- Modal para galería -->
+                    <div id="modal-${plantId}" class="gallery-modal" onclick="if(event.target===this) cerrarModal('${plantId}')">
+                        <span class="modal-close" onclick="cerrarModal('${plantId}')">&times;</span>
+                        <button class="modal-prev" onclick="cambiarImagen(-1, '${plantId}')">❮</button>
+                        <img class="modal-img" id="modal-img-${plantId}" src="">
+                        <button class="modal-next" onclick="cambiarImagen(1, '${plantId}')">❯</button>
+                    </div>
                 `;
                 document.body.appendChild(page);
+                
+                setTimeout(() => cargarGaleria(plantId), 100);
             }
             page.style.display = 'block';
             currentPage = `${plantId}-page`;
+            cargarGaleria(plantId);
         }
 
         document.addEventListener('DOMContentLoaded', function() { showHomePage(); });
@@ -3030,6 +3326,8 @@
         window.pauseAudio = pauseAudio;
         window.playAudioPoint = playAudioPoint;
         window.pauseAudioPoint = pauseAudioPoint;
+        window.cerrarModal = cerrarModal;
+        window.cambiarImagen = cambiarImagen;
     </script>
 </body>
 </html>
